@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arogya Yatri - Testimonials</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            logo: ['Anton', 'sans-serif'],
+            body: ['Lexend', 'sans-serif']
+          },
+          colors: {
+            primaryDark: '#0F172A'
+          }
+        }
+      }
+    }
+  </script>
+
+<style>
+    /* Hide scrollbar globally */
+html, body {
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE & Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;              /* Chrome, Safari */
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ===== NAVBAR ===== */
+#siteHeader {
+    height: 72px;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.nav-link {
+    position: relative;
+    color: black;
+    padding: 4px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: black;
+    transform: translateX(-50%);
+    transition: width .25s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    border-color: black;
+}
+
+/* ===== PAGE OFFSET FOR FIXED NAV ===== */
+.page-wrapper {
+    padding-top: 96px;
+}
+
+/* ===== Mobile Sidebar Fix ===== */
+#mobileMenu nav a {
+display: block;
+width: 100%;
+line-height: 1.4;
+padding: 6px 0;
+white-space: normal;
+}
+
+</style>
+
+</head>
+
+<body class="font-body bg-white text-black">
+
+<!-- ================= NAVBAR ================= -->
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-50">
+  <nav class="relative max-w-7xl mx-auto px-6 h-full flex items-center">
+
+    <!-- Logo -->
+     <a href="../../index.html">
+    <div class="leading-tight">
+      <div class="text-2xl tracking-tight">Arogya Yatri</div>
+      <div class="text-xs opacity-70">A service by Ewan Business Solutions</div>
+    </div>
+    </a>
+
+    <!-- Center Links -->
+    <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium">
+      <li><a href="doctor.html" class="nav-link">Doctors</a></li>
+      <li><a href="testimonial.html" class="nav-link">Testimonials</a></li>
+      <li><a href="hospital.html" class="nav-link">Hospitals</a></li>
+      <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="ml-auto hidden md:flex">
+      <a class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border transition">
+        <span class="h-8 w-8 rounded-full bg-black text-white flex items-center justify-center circleicon">
+          <i class='bx bx-right-arrow-alt'></i>
+        </span>
+        <span class="text-sm font-medium">Book Consultation</span>
+      </a>
+    </div>
+
+    <!-- Mobile Button -->
+    <button id="menuBtn" class="ml-auto md:hidden text-2xl">
+      <i class='bx bx-menu'></i>
+    </button>
+  </nav>
+</header>
+
+<!-- ================= MOBILE SIDEBAR ================= -->
+<div id="mobileMenu"
+  class="fixed inset-y-0 left-0 w-80 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden shadow-2xl">
+
+  <!-- Header -->
+  <div class="p-6 border-b border-gray-200 flex justify-between items-start">
+    <a href="../../index.html">
+    <div>
+      <div class="font-body text-2xl text-primaryDark">Arogya Yatri</div>
+      <div class="text-sm text-gray-500">A service by Ewan Business Solutions</div>
+    </div>
+    </a>
+    <button id="closeBtn" class="text-2xl text-black">
+      <i class='bx bx-x'></i>
+    </button>
+  </div>
+
+  <!-- Nav -->
+  <nav class="px-6 py-8 space-y-6 text-lg font-medium text-primaryDark">
+    <a href="doctor.html" class="block">Doctors</a>
+    <a href="testimonial.html" class="block">Testimonials</a>
+    <a href="hospital.html" class="block">Hospitals</a>
+    <a href="pricing.html" class="block">Pricing</a>
+    <a href="about.html" class="block">About</a>
+
+    <div class="pt-6 border-t border-gray-200"></div>
+
+    <a style="display: flex; padding-left: 10px; padding-right: 10px;"
+      class="openConsultantModal flex items-center justify-between px-5 py-2 rounded-full border border-primaryDark hover:bg-primaryDark hover:text-white transition">
+      <span>Book Consultation</span>
+      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white group-hover:bg-white group-hover:text-primaryDark">
+        <i class='bx bx-right-arrow-alt text-xl'></i>
+      </span>
+    </a>
+  </nav>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="page-wrapper max-w-7xl mx-auto ">
+
+    <!-- ================= TRUSTED PATIENT EXPERIENCES ================= -->
+<section class="bg-white py-14">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="grid lg:grid-cols-12 gap-14 mb-20">
+      <div class="lg:col-span-7">
+        <span class="inline-block text-xs tracking-[0.25em] uppercase text-blue-600 font-medium mb-4">
+          Patient Experiences
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+          Trusted Care,
+          <br class="hidden sm:block">
+          <span class="text-blue-500">
+          Proven Medical Outcomes
+          </span>
+        </h2>
+        <p class="mt-6 text-base text-slate-600 max-w-2xl">
+          Patients across continents rely on us for ethical medical guidance,
+          globally accredited hospitals, and seamless coordination designed
+          around clarity and confidence.
+        </p>
+      </div>
+
+      <!-- Trust Numbers -->
+      <div class="lg:col-span-5 grid grid-cols-2 gap-8">
+        <div>
+          <p class="text-4xl font-semibold text-slate-900">5,000+</p>
+          <p class="text-sm text-slate-500 mt-1">Patients Assisted</p>
+        </div>
+        <div>
+          <p class="text-4xl font-semibold text-slate-900">98%</p>
+          <p class="text-sm text-slate-500 mt-1">Positive Feedback</p>
+        </div>
+        <div>
+          <p class="text-4xl font-semibold text-slate-900">150+</p>
+          <p class="text-sm text-slate-500 mt-1">Partner Hospitals</p>
+        </div>
+        <div>
+          <p class="text-4xl font-semibold text-slate-900">25+</p>
+          <p class="text-sm text-slate-500 mt-1">Countries Served</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="space-y-10">
+
+      <!-- Testimonial -->
+      <article class="border-b border-slate-200 pb-10">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+
+          <div class="md:col-span-3 flex items-center gap-4">
+            <img src="../../src/images/male-doctor.png"
+                 class="w-14 h-14 rounded-full object-cover"
+                 alt="Patient">
+            <div>
+              <p class="font-semibold text-slate-900">Rahul Mehta</p>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class='bx bx-map'></i> Mumbai, India
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star-half'></i>
+              <span class="ml-3 text-sm text-slate-500">
+                Orthopedic Surgery
+              </span>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed max-w-3xl">
+              Every stage of my treatment was explained clearly.
+              From hospital selection to recovery planning, the process
+              felt structured, transparent, and genuinely patient-focused.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 text-sm text-slate-500 space-y-2">
+            <div class="flex items-center gap-2">
+              <i class='bx bx-plus-medical'></i>
+              Arthroscopy
+            </div>
+            <div class="flex items-center gap-2">
+              <i class='bx bx-buildings'></i>
+              Fortis Hospital
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Testimonial -->
+      <article class="border-b border-slate-200 pb-10">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+
+          <div class="md:col-span-3 flex items-center gap-4">
+            <img src="../../src/images/female-doctor.png"
+                 class="w-14 h-14 rounded-full object-cover"
+                 alt="Patient">
+            <div>
+              <p class="font-semibold text-slate-900">Anita Sharma</p>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class='bx bx-map'></i> New Delhi, India
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <span class="ml-3 text-sm text-slate-500">
+                Oncology Care
+              </span>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed max-w-3xl">
+              The team handled everything with empathy and precision.
+              I always felt informed and supported, both medically
+              and emotionally, throughout my care journey.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 text-sm text-slate-500 space-y-2">
+            <div class="flex items-center gap-2">
+              <i class='bx bx-plus-medical'></i>
+              Chemotherapy
+            </div>
+            <div class="flex items-center gap-2">
+              <i class='bx bx-buildings'></i>
+              Medanta
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Testimonial -->
+      <article class="border-b border-slate-200 pb-10">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+
+          <div class="md:col-span-3 flex items-center gap-4">
+            <img src="../../src/images/male-doctor.png"
+                 class="w-14 h-14 rounded-full object-cover"
+                 alt="Patient">
+            <div>
+              <p class="font-semibold text-slate-900">Rahul Mehta</p>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class='bx bx-map'></i> Mumbai, India
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star-half'></i>
+              <span class="ml-3 text-sm text-slate-500">
+                Orthopedic Surgery
+              </span>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed max-w-3xl">
+              Every stage of my treatment was explained clearly.
+              From hospital selection to recovery planning, the process
+              felt structured, transparent, and genuinely patient-focused.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 text-sm text-slate-500 space-y-2">
+            <div class="flex items-center gap-2">
+              <i class='bx bx-plus-medical'></i>
+              Arthroscopy
+            </div>
+            <div class="flex items-center gap-2">
+              <i class='bx bx-buildings'></i>
+              Fortis Hospital
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Testimonial -->
+      <article class="border-b border-slate-200 pb-10">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+
+          <div class="md:col-span-3 flex items-center gap-4">
+            <img src="../../src/images/female-doctor.png"
+                 class="w-14 h-14 rounded-full object-cover"
+                 alt="Patient">
+            <div>
+              <p class="font-semibold text-slate-900">Anita Sharma</p>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class='bx bx-map'></i> New Delhi, India
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <span class="ml-3 text-sm text-slate-500">
+                Oncology Care
+              </span>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed max-w-3xl">
+              The team handled everything with empathy and precision.
+              I always felt informed and supported, both medically
+              and emotionally, throughout my care journey.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 text-sm text-slate-500 space-y-2">
+            <div class="flex items-center gap-2">
+              <i class='bx bx-plus-medical'></i>
+              Chemotherapy
+            </div>
+            <div class="flex items-center gap-2">
+              <i class='bx bx-buildings'></i>
+              Medanta
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Testimonial -->
+      <article class="border-b border-slate-200 pb-10">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+
+          <div class="md:col-span-3 flex items-center gap-4">
+            <img src="../../src/images/male-doctor.png"
+                 class="w-14 h-14 rounded-full object-cover"
+                 alt="Patient">
+            <div>
+              <p class="font-semibold text-slate-900">Rahul Mehta</p>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class='bx bx-map'></i> Mumbai, India
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star-half'></i>
+              <span class="ml-3 text-sm text-slate-500">
+                Orthopedic Surgery
+              </span>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed max-w-3xl">
+              Every stage of my treatment was explained clearly.
+              From hospital selection to recovery planning, the process
+              felt structured, transparent, and genuinely patient-focused.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 text-sm text-slate-500 space-y-2">
+            <div class="flex items-center gap-2">
+              <i class='bx bx-plus-medical'></i>
+              Arthroscopy
+            </div>
+            <div class="flex items-center gap-2">
+              <i class='bx bx-buildings'></i>
+              Fortis Hospital
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Testimonial -->
+      <article class="border-b border-slate-200 pb-10">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+
+          <div class="md:col-span-3 flex items-center gap-4">
+            <img src="../../src/images/female-doctor.png"
+                 class="w-14 h-14 rounded-full object-cover"
+                 alt="Patient">
+            <div>
+              <p class="font-semibold text-slate-900">Anita Sharma</p>
+              <p class="text-xs text-slate-500 flex items-center gap-1">
+                <i class='bx bx-map'></i> New Delhi, India
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <span class="ml-3 text-sm text-slate-500">
+                Oncology Care
+              </span>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed max-w-3xl">
+              The team handled everything with empathy and precision.
+              I always felt informed and supported, both medically
+              and emotionally, throughout my care journey.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 text-sm text-slate-500 space-y-2">
+            <div class="flex items-center gap-2">
+              <i class='bx bx-plus-medical'></i>
+              Chemotherapy
+            </div>
+            <div class="flex items-center gap-2">
+              <i class='bx bx-buildings'></i>
+              Medanta
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONFIDENT CTA ================= -->
+ 
+<section class="bg-slate-50 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-14 items-center rounded-3xl border border-slate-200 bg-white p-10 sm:p-16">
+
+      <img src="../../src/images/doctor-modal-img.png"
+           class="rounded-2xl h-[420px] object-cover w-full"
+           alt="Medical Consultation">
+
+      <div>
+        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-blue-600 mb-4">
+          <i class='bx bx-shield'></i>
+          Trusted Medical Guidance
+        </span>
+
+        <h3 class="text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight">
+          Begin Your Treatment Journey
+          <br class="hidden sm:block">
+          With Confidence
+        </h3>
+
+        <p class="mt-5 text-slate-600 max-w-xl">
+          Speak directly with experienced medical coordinators
+          for clear, ethical, and patient-first guidance.
+        </p>
+
+        <form id="whatsappForm" class="mt-8 space-y-5 max-w-md">
+          <input id="name" required
+                 class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                 placeholder="Full Name">
+
+          <input type="number" id="phone" required
+                 class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                 placeholder="Phone Number">
+
+          <input id="email"
+                 class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                 placeholder="Email Address">
+
+          <input id="treatment" required
+                 class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                 placeholder="Treatment / Speciality">
+
+          <button type="submit"
+            class="group w-full inline-flex items-center justify-center gap-4 rounded-full bg-slate-900 text-white py-3.5 px-6 font-medium hover:bg-slate-800 transition">
+            
+            <span>Send Details</span>
+
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition group-hover:bg-white/20">
+                <i class="bx bx-right-arrow-alt text-xl"></i>
+            </span>
+        </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="relative bg-slate-900 text-slate-300 pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid gap-14 md:grid-cols-2 lg:grid-cols-5 mb-16">
+
+      <div class="lg:col-span-2">
+        <a href="../../index.html">
+        <h3 class="font-brand text-2xl text-white mb-2">Arogya Yatri</h3>
+        <p class="text-sm text-slate-400 mb-6 max-w-md">Arogya Yatri is a global medical tourism platform connecting patients with world-class hospitals, trusted doctors, and seamless healthcare journeys across borders.</p>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition" aria-label="Facebook"><i class='bx bxl-facebook text-lg'></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition" aria-label="Instagram"><i class='bx bxl-instagram text-lg'></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition" aria-label="LinkedIn"><i class='bx bxl-linkedin text-lg'></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition" aria-label="YouTube"><i class='bx bxl-youtube text-lg'></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-5">Company</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="testimonial.html" class="hover:text-white transition">Testimonials</a></li>
+          <li><a href="doctor.html" class="hover:text-white transition">Doctors</a></li>
+          <li><a href="hospital.html" class="hover:text-white transition">Hospitals</a></li>
+          <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-5">Services</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="hospital.html" class="hover:text-white transition">Medical Tourism</a></li>
+          <li><a href="doctor.html" class="hover:text-white transition">Doctor Consultation</a></li>
+          <li><a href="pricing.html" class="hover:text-white transition">Treatment Packages</a></li>
+          <li><a href="doctor.html" class="hover:text-white transition">Post-Treatment Care</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-5">Support</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+          <li><a href="about.html" class="hover:text-white transition">Contact Us</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mb-8"></div>
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <p>© 2025 Arogya Yatri. A service by Ewan Business Solutions. All rights reserved.</p>
+
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2"><i class='bx bx-shield-quarter text-teal-400'></i> Secure & Confidential</span>
+        <span class="flex items-center gap-2"><i class='bx bx-world text-teal-400'></i> Global Healthcare Network</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- CONSULTANT MODAL -->
+<div id="consultantModal"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+
+  <div class="relative w-full max-w-md rounded-[28px] bg-white shadow-2xl overflow-hidden">
+
+    <!-- HEADER -->
+    <div class="flex items-start justify-between px-6 py-4 border-b border-slate-100">
+      <div>
+        <h3 class="text-base font-semibold text-slate-900">
+          Book Medical Consultation
+        </h3>
+        <p class="mt-0.5 text-xs text-slate-500">
+          Get expert guidance from our team
+        </p>
+      </div>
+
+      <button id="closeConsultantModal"
+              class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition">
+        <i class='bx bx-x text-xl text-slate-600'></i>
+      </button>
+    </div>
+
+    <!-- BODY -->
+    <form id="consultantForm" class="px-6 py-5 space-y-4">
+
+      <!-- NAME -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Full Name
+        </label>
+        <div class="relative">
+          <i class='bx bx-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="text" required
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="Your name">
+        </div>
+      </div>
+
+      <!-- PHONE -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Phone Number
+        </label>
+        <div class="relative">
+          <i class='bx bx-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="tel" required
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Email Address
+        </label>
+        <div class="relative">
+          <i class='bx bx-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="email"
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="you@example.com">
+        </div>
+      </div>
+
+      <!-- SPECIALITY -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Speciality
+        </label>
+        <div class="relative">
+          <i class='bx bx-plus-medical absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <select
+            class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Select speciality</option>
+            <option>Cardiology</option>
+            <option>Orthopedics</option>
+            <option>Oncology</option>
+            <option>Neurology</option>
+            <option>General Consultation</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Medical Details (Optional)
+        </label>
+        <textarea rows="2"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Brief details"></textarea>
+      </div>
+
+      <!-- SUBMIT -->
+      <button type="submit"
+              class="group w-full flex items-center justify-center gap-3 rounded-full bg-blue-500 text-white py-2.5 text-sm font-medium hover:bg-blue-600 transition">
+        <span class="w-8 h-8 rounded-full bg-white text-blue-500 flex items-center justify-center">
+          <i class='bx bx-right-arrow-alt text-lg'></i>
+        </span>
+        Send Details
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+</main>
+
+<!-- MODAL SCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll('.openConsultantModal');
+    const modal = document.getElementById('consultantModal');
+    const closeBtn = document.getElementById('closeConsultantModal');
+    const form = document.getElementById('consultantForm');
+
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = form.querySelector('input[type="text"]').value;
+      const phone = form.querySelector('input[type="tel"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const speciality = form.querySelector('select').value;
+      const details = form.querySelector('textarea').value;
+
+      const message =
+        `Consultation Request\n\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n` +
+        `Speciality: ${speciality}\n` +
+        `Details: ${details}`;
+
+      const whatsappURL =
+        `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappURL, '_blank');
+    });
+  });
+</script>
+
+<!-- MENU TOGGLE SCRIPT -->
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.onclick = () => mobileMenu.classList.remove('-translate-x-full');
+  closeBtn.onclick = () => mobileMenu.classList.add('-translate-x-full');
+</script>
+
+<!-- CTA section -->
+<script>
+  document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const treatment = document.getElementById('treatment').value.trim();
+
+    const message =
+      `New Consultation Request:%0A%0A` +
+      `Name: ${name}%0A` +
+      `Phone: ${phone}%0A` +
+      `Email: ${email}%0A` +
+      `Treatment: ${treatment}`;
+
+    const whatsappURL = `https://wa.me/1234567890?text=${message}`;
+
+    window.open(whatsappURL, '_blank');
+  });
+</script>
+
+</body>
+</html>

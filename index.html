@@ -1,372 +1,208 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arogya Yatri - A Service by Ewan Business Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
+  <!-- CSS styles -->
+  <link rel="stylesheet" href="app/style/index-page.css">
+
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            brand: ['Anton'],
-            body: ['Lexend'],
-            poppins: ['Poppins']
+            logo: ['Anton', 'sans-serif'],
+            body: ['Lexend', 'sans-serif'],
+            brand: ['Anton']
           },
           colors: {
-            teal400: '#2dd4bf'
+            primaryDark: '#0F172A',
+            medicalGreen: '#2F6F5E'
+          },
+          keyframes: {
+            smoothIn: {
+              '0%': { opacity: '0', transform: 'translateY(18px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            }
+          },
+          animation: {
+            smoothIn: 'smoothIn 900ms cubic-bezier(0.22, 1, 0.36, 1) both'
           }
         }
       }
     }
   </script>
 
-  <style>
-    /* keep original bespoke styles, refined for a premium look */
-    body { font-family: 'Lexend', system-ui; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-
-    /* navbar transitions and state */
-    #navbar {
-      transition: background .4s ease, box-shadow .4s ease, transform .25s ease;
-    }
-
-    .nav-scrolled {
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 30px rgba(15,23,42,.08);
-      transform: translateY(0);
-    }
-
-    .nav-scrolled .nav-link,
-    .nav-scrolled .brand-wrap {
-      color: #0f172a;
-    }
-
-    /* hamburger */
-    .hamburger span {
-      background: #fff;
-      transition: .35s ease;
-      display:block;
-      height:2px;
-      border-radius:2px;
-    }
-
-    .nav-scrolled .hamburger span {
-      background: #0f172a;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translateY(7px);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translateY(-7px);
-    }
-
-    .nav-link {
-      position: relative;
-      padding-bottom: 4px;
-      color: rgba(255,255,255,.95);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: #2dd4bf;
-      transition: width .35s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .slide-btn span {
-      display: inline-block;
-      transition: transform .35s ease;
-    }
-
-    .slide-btn:hover span {
-      transform: translateX(6px);
-    }
-
-    /* video hero */
-    .video-wrapper {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .bg-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.2s ease;
-    }
-
-    .bg-video.active {
-      opacity: 1;
-    }
-
-    .video-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(3,7,18,0.3) 0%, rgba(2,6,23,0.45) 60%);
-      z-index: 1;
-    }
-
-    .video-vignette {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 35% 30%, transparent 35%, rgba(0,0,0,.65) 100%);
-      z-index: 2;
-    }
-
-    .glass-sidebar {
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(22px);
-    }
-
-    /* marquee */
-    @keyframes marquee {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    .marquee-track {
-      animation: marquee 30s linear infinite;
-    }
-
-    .marquee-mask {
-      mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-    }
-
-    @media (max-width: 640px) {
-      .marquee-track {
-        animation-duration: 20s;
-      }
-    }
-
-    @keyframes marquee-rtl {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    .brand-marquee {
-      animation: marquee-rtl 28s linear infinite;
-    }
-
-    .brand-mask {
-      mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-    }
-
-    @media (max-width: 640px) {
-      .brand-marquee {
-        animation-duration: 18s;
-      }
-    }
-
-    @keyframes grow-line {
-      from { height: 0; }
-      to { height: 100%; }
-    }
-
-    .step-line {
-      animation: grow-line 1.6s ease-out forwards;
-    }
-
-    /* Hide scrollbar globally */
-    html, body {
-      scrollbar-width: none;      /* Firefox */
-      -ms-overflow-style: none;   /* IE & Edge */
-    }
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-      display: none;              /* Chrome, Safari */
-    }
-    *::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Small UI tweaks for improved spacing on small screens */
-    @media (max-width: 768px) {
-      header .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
-      .bg-video { filter: brightness(.65) saturate(.95); }
-    }
-  </style>
 </head>
 
-<body class="bg-white text-slate-800 antialiased">
+<body class="font-body bg-white text-black">
 
-<!-- NAVBAR -->
-<header id="navbar" class="fixed top-0 w-full z-50" role="banner">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="brand-wrap text-white leading-tight select-none" aria-hidden="false">
-      <a href="index.html">
-      <div class="font-brand text-2xl tracking-wide">Arogya Yatri</div>
-      <div class="text-xs opacity-80">A service by Ewan Business Solutions</div>
+<!-- ================= NAVBAR ================= -->
+<header id="siteHeader" class="fixed w-full z-50">
+  <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <!-- Logo -->
+    <div class="leading-tight text-white nav-text">
+      <div class="font-body text-2xl tracking-tight">
+        Arogya Yatri
+      </div>
+      <div class="text-xs opacity-80">
+        A service by Ewan Business Solutions
+      </div>
+    </div>
+
+    <!-- Links -->
+    <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium text-white nav-text">
+      <li><a href="app/pages/doctor.html" class="nav-link">Doctors</a></li>
+      <li><a href="app/pages/testimonial.html" class="nav-link">Testimonials</a></li>
+      <li><a href="app/pages/hospital.html" class="nav-link">Hospitals</a></li>
+      <li><a href="app/pages/pricing.html" class="nav-link">Pricing</a></li>
+      <li><a href="app/pages/about.html" class="nav-link">About</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="hidden md:flex">
+      <a
+        class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition">
+        <span class="h-8 w-8 rounded-full bg-white text-black flex items-center justify-center">
+          <i class='bx bx-right-arrow-alt text-lg'></i>
+        </span>
+        <span class="text-sm font-medium">Book Consultation</span>
       </a>
     </div>
 
-    <nav class="hidden lg:flex items-center gap-10 text-sm font-medium text-white" role="navigation" aria-label="Main navigation">
-      <a class="nav-link" href="/app/pages/testimonials.html" tabindex="0">Testimonials</a>
-      <a class="nav-link" href="/app/pages/hospitals.html" tabindex="0">Hospitals</a>
-      <a class="nav-link" href="/app/pages/doctors.html" tabindex="0">Doctors</a>
-      <a class="nav-link" href="/app/pages/destinations.html" tabindex="0">Destinations</a>
-      <a class="nav-link" href="/app/pages/explore.html" tabindex="0">Explore</a>
-      <button class="ml-6 px-6 py-2.5 rounded-full bg-white text-black flex items-center gap-2 slide-btn btn-appointment-premium" aria-label="Book Consultant">
-        <i class='bx bx-calendar'></i>
-        <span>Book Consultant</span>
-      </button>
-    </nav>
-
-    <button id="menuBtn" class="hamburger lg:hidden flex flex-col gap-1.5 p-2" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
-      <span class="w-6"></span>
-      <span class="w-6"></span>
-      <span class="w-6"></span>
+    <button id="menuBtn" class="md:hidden text-2xl text-white nav-text">
+      <i class='bx bx-menu'></i>
     </button>
-  </div>
+
+  </nav>
 </header>
 
-<!-- MOBILE MENU -->
-<aside id="mobileMenu" class="fixed top-0 right-0 h-full w-[85%] max-w-sm glass-sidebar translate-x-full transition-transform duration-500 z-40 shadow-xl" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="px-6 py-6 h-full flex flex-col">
-    <div class="mb-10">
-      <div class="font-brand text-xl">Arogya Yatri</div>
-      <p class="text-xs text-gray-600">A service by Ewan Business Solutions</p>
+<!-- ================= MOBILE SIDEBAR ================= -->
+<div id="mobileMenu"
+  class="fixed inset-y-0 left-0 w-80 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden shadow-2xl">
+
+  <!-- Header -->
+  <div class="p-6 border-b border-gray-200 flex justify-between items-start">
+    <div>
+      <div class="font-body text-2xl text-primaryDark">Arogya Yatri</div>
+      <div class="text-sm text-gray-500">A service by Ewan Business Solutions</div>
     </div>
-
-    <nav class="flex flex-col gap-6 text-base font-medium" aria-label="Mobile navigation">
-      <a href="/app/pages/testimonials.html">Testimonials</a>
-      <a href="/app/pages/hospitals.html">Hospitals</a>
-      <a href="/app/pages/doctors.html">Doctors</a>
-      <a href="/app/pages/destinations.html">Destinations</a>
-      <a href="/app/pages/explore.html">Explore</a>
-    </nav>
-
-    <div class="mt-auto">
-      <button class="w-full py-3 rounded-full bg-gray-900 text-white flex items-center justify-center gap-2 slide-btn btn-appointment-premium" aria-label="Book Consultant mobile">
-        <i class='bx bx-calendar'></i>
-        <span>Book Consultant</span>
-      </button>
-    </div>
-  </div>
-</aside>
-
-<!-- HERO -->
-<main class="min-h-screen flex items-center justify-center px-6 pt-32 pb-24 text-center relative" role="main">
-
-  <!-- HERO BACKGROUND VIDEO -->
-  <div class="video-wrapper" aria-hidden="true">
-    <video class="bg-video active" muted playsinline></video>
-    <video class="bg-video" muted playsinline></video>
-    <video class="bg-video" muted playsinline></video>
-    <div class="video-overlay"></div>
-    <div class="video-vignette"></div>
+    <button id="closeBtn" class="text-2xl text-black">
+      <i class='bx bx-x'></i>
+    </button>
   </div>
 
-  <!-- HERO CONTENT -->
-  <div class="relative z-10 max-w-4xl text-white">
-    <div class="max-w-4xl text-white">
+  <!-- Nav -->
+  <nav class="px-6 py-8 space-y-6 text-lg font-medium text-primaryDark">
+    <a href="app/pages/doctor.html" class="block">Doctors</a>
+    <a href="app/pages/testimonial.html" class="block">Testimonials</a>
+    <a href="app/pages/hospital.html" class="block">Hospitals</a>
+    <a href="app/pages/pricing.html" class="block">Pricing</a>
+    <a href="app/pages/about.html" class="block">About</a>
+    <div class="pt-6 border-t border-gray-200"></div>
 
-      <p class="font-poppins text-sm tracking-widest uppercase text-white/90 mb-2">
-        Global Medical Tourism
-      </p>
+    <a href="#"
+      class="openConsultantModal flex items-center justify-between px-5 py-4 rounded-full border border-primaryDark hover:bg-primaryDark hover:text-white transition">
+      <span>Book Consultation</span>
+      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white group-hover:bg-white group-hover:text-primaryDark">
+        <i class='bx bx-right-arrow-alt text-xl'></i>
+      </span>
+    </a>
+  </nav>
+</div>
 
-      <p class="font-poppins text-xs text-white/70 mb-6">
-        Trusted healthcare journeys across borders
-      </p>
+<!-- ================= HERO ================= -->
+<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
 
-      <h1 class="font-body text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight mb-6">
-        Seamless Medical Tourism With
-        <span class="block mt-2">
-          <span class="text-teal-300">World-Class Care</span>,
-          <span class="text-sky-300"> Trusted Hospitals</span>,
-          <span class="text-emerald-300"> End-To-End Guidance</span>
+  <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+    <source src="src/videos/clip2.mp4" type="video/mp4">
+  </video>
+
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative z-10 max-w-4xl px-6 mt-24">
+
+    <p class="text-sm uppercase tracking-wide text-white mb-4 opacity-0 animate-smoothIn">
+      Trusted Healthcare Navigation
+    </p>
+
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight mb-6 opacity-0 animate-smoothIn text-white"
+        style="animation-delay:150ms">
+      <span class="text-green-300">Healthcare</span>
+      <span class="text-white"> made effortless,<br class="hidden sm:block">
+      wherever you are</span>
+    </h1>
+
+    <p class="text-base text-white/85 max-w-2xl mx-auto mb-10 opacity-0 animate-smoothIn"
+       style="animation-delay:300ms">
+      Seamlessly connect with verified doctors, trusted hospitals, and expert care guidance — designed for clarity, confidence, and comfort.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-smoothIn"
+         style="animation-delay:450ms">
+
+      <a class="openConsultantModal inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white text-black font-medium">
+        <span class="h-9 w-9 rounded-full bg-black text-white flex items-center justify-center">
+          <i class='bx bx-right-arrow-alt text-xl'></i>
         </span>
-      </h1>
+        Book Consultation
+      </a>
 
-      <p class="font-poppins text-sm text-white/75 mb-10 max-w-2xl mx-auto">
-        From consultation to recovery, we manage every step of your international healthcare journey.
-      </p>
-
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <button class="px-7 py-3 rounded-full bg-white text-black flex items-center gap-2 slide-btn focus:outline-none focus:ring-4 focus:ring-white/30 btn-appointment-premium" aria-label="Book Consultant">
-          <i class='bx bx-calendar-check'></i>
-          <span>Book Consultant</span>
-        </button>
-
-        <button class="px-7 py-3 rounded-full border border-white/30 text-white flex items-center gap-2 slide-btn hover:bg-white/10 transition focus:outline-none focus:ring-4 focus:ring-white/20" aria-label="Explore services">
-          <i class='bx bx-compass'></i>
-          <span>Explore</span>
-        </button>
-      </div>
-
-      <div class="mt-14 flex flex-wrap justify-center gap-3 text-xs font-poppins text-white/70">
-        <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5">Cardiac Care</span>
-        <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5">Orthopedic Surgery</span>
-        <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5">Oncology Treatment</span>
-        <span class="px-4 py-1.5 rounded-full border border-white/20 bg-white/5">Cosmetic Procedures</span>
-      </div>
-
+      <a href="app/pages/hospital.html"
+        class="inline-flex items-center gap-4 px-6 py-3 rounded-full border border-white text-white font-medium">
+        <span class="h-9 w-9 rounded-full bg-white text-black flex items-center justify-center">
+          <i class='bx bx-right-arrow-alt text-xl'></i>
+        </span>
+        Explore
+      </a>
     </div>
+
+   <div
+  class="mt-14 text-base sm:text-lg font-medium tracking-wide text-white
+         opacity-0 animate-smoothIn"
+  style="animation-delay:650ms">
+
+  <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-6">
+    <span>Cardiology</span>
+    <span class="hidden sm:inline opacity-40">|</span>
+
+    <span>Neurology</span>
+    <span class="hidden sm:inline opacity-40">|</span>
+
+    <span>Orthopedics</span>
+    <span class="hidden sm:inline opacity-40">|</span>
+
+    <span>Pediatrics</span>
   </div>
-</main>
+
+</div>
+
+
+  </div>
+</section>
+
 
 <!-- TOP BRANDS SUPPORT -->
 <section class="relative bg-white py-20 border-t border-slate-100">
+
   <div class="max-w-7xl mx-auto px-6 text-center mb-14">
     <p class="font-poppins text-xs tracking-widest uppercase text-teal-500 mb-3">
       Trusted Healthcare Network
     </p>
 
-    <h2 class="font-body text-3xl sm:text-4xl font-semibold text-teal-500">
-      Supported by <span class="text-orange-500">World-Renowned Hospitals</span>
+    <h2 class="font-body text-3xl sm:text-4xl font-semibold text-blue -700">
+      Supported by <span class="text-blue-500">World-Renowned Hospitals</span>
     </h2>
 
     <p class="mt-4 text-sm text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -397,12 +233,12 @@
     <!-- Header -->
     <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-16">
       <div>
-        <p class="font-poppins text-xs tracking-widest uppercase text-teal-500 mb-3">
+        <p class="text-xs tracking-widest uppercase text-teal-600 font-medium mb-3">
           Medical Expertise
         </p>
 
-        <h2 class="font-body text-3xl sm:text-4xl font-semibold text-teal-500 leading-tight">
-          Explore Our <span class="text-orange-500">Specialities</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+          Explore Our <span class="text-blue-500">Specialities</span>
         </h2>
 
         <p class="mt-4 text-sm text-slate-500 max-w-xl leading-relaxed">
@@ -412,8 +248,7 @@
       </div>
 
       <a href="#"
-         class="inline-flex items-center gap-2 text-sm font-medium text-slate-900
-                hover:text-teal-500 transition">
+         class="inline-flex items-center gap-2 text-sm font-medium text-slate-800 hover:text-teal-600 transition">
         View All Specialities
         <i class='bx bx-right-arrow-alt text-xl'></i>
       </a>
@@ -421,20 +256,29 @@
 
     <!-- Cards -->
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Card 1 -->
-      <div class="group rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-slate-200/70 transition duration-300 hover:shadow-2xl hover:border-teal-300">
-        <div class="p-6">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09" alt="Cardiac Care" class="w-full h-48 object-cover rounded-3xl" />
-        </div>
-        <div class="px-8 pb-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-11 h-11 rounded-full bg-teal-500/10 flex items-center justify-center shadow-sm">
-              <i class='bx bx-heart text-lg text-teal-600'></i>
-            </div>
 
-            <div class="flex flex-col">
-              <h3 class="font-body text-lg font-semibold text-slate-900">Cardiac Care</h3>
-              <span class="text-xs text-slate-500 mt-0.5">Mobility • Strength • Recovery</span>
+      <!-- Card 1 -->
+      <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white transition-colors hover:border-teal-300">
+        <div class="h-56">
+          <img
+            src="src/images/cardiac.webp"
+            alt="Cardiac Care"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="px-8 py-8">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center">
+              <i class='bx bx-heart text-xl text-teal-600'></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">
+                Cardiac Care
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Heart • Circulation • Recovery
+              </p>
             </div>
           </div>
 
@@ -443,46 +287,62 @@
             and minimally invasive cardiac procedures.
           </p>
         </div>
-      </div>
+      </article>
 
       <!-- Card 2 -->
-      <div class="group rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-slate-200/70 transition duration-300 hover:shadow-2xl hover:border-sky-300">
-        <div class="p-6">
-          <img src="https://images.unsplash.com/photo-1600959907703-125ba1374a12" alt="Orthopedic Surgery" class="w-full h-48 object-cover rounded-3xl" />
+      <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white transition-colors hover:border-sky-300">
+        <div class="h-56">
+          <img
+            src="src/images/ortho.webp"
+            alt="Orthopedic Surgery"
+            class="w-full h-full object-cover"
+          />
         </div>
 
-        <div class="px-8 pb-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-11 h-11 rounded-full bg-sky-500/10 flex items-center justify-center">
-              <i class='bx bx-bone text-lg text-sky-600'></i>
+        <div class="px-8 py-8">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center">
+              <i class='bx bx-bone text-xl text-sky-600'></i>
             </div>
-            <div class="flex flex-col">
-              <h3 class="font-body text-lg font-semibold text-slate-900">Orthopedic Surgery</h3>
-              <span class="text-xs text-slate-500 mt-0.5">Mobility • Strength • Recovery</span>
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">
+                Orthopedic Surgery
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Mobility • Strength • Rehabilitation
+              </p>
             </div>
           </div>
 
           <p class="text-sm text-slate-600 leading-relaxed">
             Joint replacement, spine surgery, sports injury management,
-            and orthopedic rehabilitation.
+            and long-term orthopedic rehabilitation.
           </p>
         </div>
-      </div>
+      </article>
 
       <!-- Card 3 -->
-      <div class="group rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-slate-200/70 transition duration-300 hover:shadow-2xl hover:border-emerald-300">
-        <div class="p-6">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" alt="Oncology" class="w-full h-48 object-cover rounded-3xl" />
+      <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white transition-colors hover:border-emerald-300">
+        <div class="h-56">
+          <img
+            src="src/images/oncology.webp"
+            alt="Oncology"
+            class="w-full h-full object-cover"
+          />
         </div>
 
-        <div class="px-8 pb-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-11 h-11 rounded-full bg-emerald-500/10 flex items-center justify-center">
-              <i class='bx bx-plus-medical text-lg text-emerald-600'></i>
+        <div class="px-8 py-8">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center">
+              <i class='bx bx-plus-medical text-xl text-emerald-600'></i>
             </div>
-            <div class="flex flex-col">
-              <h3 class="font-body text-lg font-semibold text-slate-900">Oncology</h3>
-              <span class="text-xs text-slate-500 mt-0.5">Mobility • Strength • Recovery</span>
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900">
+                Oncology
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Diagnosis • Treatment • Care
+              </p>
             </div>
           </div>
 
@@ -491,126 +351,117 @@
             chemotherapy, radiotherapy, and surgical oncology.
           </p>
         </div>
-      </div>
-    </div>
+      </article>
 
+    </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="relative bg-white py-24 border-t border-slate-100 overflow-hidden">
+<section class="relative bg-white py-28 border-t border-slate-100 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- HEADING -->
     <div class="max-w-2xl mb-20">
-      <p class="font-poppins text-xs tracking-widest uppercase text-indigo-500 mb-3">
+      <p class="text-xs tracking-widest uppercase text-teal-600 font-medium mb-3">
         Simple & Transparent
       </p>
-      <h2 class="font-body text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
-        How <span class="text-orange-500">Arogya Yatri</span> Works
+
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+        How <span class="text-blue-500">Arogya Yatri</span> Works
       </h2>
+
       <p class="mt-4 text-sm text-slate-500 leading-relaxed">
-        A seamless step-by-step journey guiding you from consultation to complete recovery.
+        A carefully designed journey that supports you from first consultation
+        to recovery and long-term follow-up care.
       </p>
     </div>
 
-    <!-- STEPS -->
+    <!-- STEPS WRAPPER -->
     <div class="relative">
 
-      <!-- Animated Line (Desktop) -->
-      <div class="hidden md:block absolute top-7 left-0 w-full h-[2px] bg-slate-200">
-        <div class="h-full bg-orange-400 animated-horizontal-line"></div>
+      <!-- CONNECTING LINE (DESKTOP) -->
+      <div class="hidden md:block absolute top-[42px] left-0 w-full h-[2px] bg-slate-200">
+        <div id="progressLine" class="h-full bg-orange-400 w-0"></div>
       </div>
 
-      <!-- Steps Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-6 gap-10 relative z-10">
+      <!-- STEPS -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-12 relative z-10">
 
         <!-- STEP 1 -->
-        <div class="flex md:flex-col gap-4 md:gap-3 items-start md:items-center">
-          <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center shrink-0">
-            <i class="bx bx-file text-white text-xl"></i>
+        <div class="step-card flex md:flex-col items-start md:items-center gap-5 text-left md:text-center opacity-0 translate-y-6">
+          <div class="step-icon bg-teal-50 text-teal-600">
+            <i class="bx bx-file"></i>
           </div>
-          <div class="md:text-center">
-            <h3 class="text-sm font-semibold text-slate-900">
-              Share Your Medical Need
-            </h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Submit reports via form or WhatsApp. Our care team connects within 24 hours.
+          <div>
+            <h3 class="step-title">Share Medical Details</h3>
+            <p class="step-desc">
+              Upload reports via form or WhatsApp. Our care team responds within 24 hours.
             </p>
           </div>
         </div>
 
         <!-- STEP 2 -->
-        <div class="flex md:flex-col gap-4 md:gap-3 items-start md:items-center">
-          <div class="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center shrink-0">
-            <i class="bx bx-clinic text-white text-xl"></i>
+        <div class="step-card flex md:flex-col items-start md:items-center gap-5 text-left md:text-center opacity-0 translate-y-6">
+          <div class="step-icon bg-sky-50 text-sky-600">
+            <i class="bx bx-clinic"></i>
           </div>
-          <div class="md:text-center">
-            <h3 class="text-sm font-semibold text-slate-900">
-              Expert Opinions & Cost
-            </h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Trusted hospitals provide personalized treatment plans and pricing.
+          <div>
+            <h3 class="step-title">Expert Opinions</h3>
+            <p class="step-desc">
+              Receive treatment plans and transparent cost estimates from top hospitals.
             </p>
           </div>
         </div>
 
         <!-- STEP 3 -->
-        <div class="flex md:flex-col gap-4 md:gap-3 items-start md:items-center">
-          <div class="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center shrink-0">
-            <i class="bx bx-plane-alt text-white text-xl"></i>
+        <div class="step-card flex md:flex-col items-start md:items-center gap-5 text-left md:text-center opacity-0 translate-y-6">
+          <div class="step-icon bg-indigo-50 text-indigo-600">
+            <i class="bx bxs-plane-alt"></i>
           </div>
-          <div class="md:text-center">
-            <h3 class="text-sm font-semibold text-slate-900">
-              Visa, Flights & Stay
-            </h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Medical visa, travel planning, accommodation, and interpreter support.
+          <div>
+            <h3 class="step-title">Travel & Visa</h3>
+            <p class="step-desc">
+              Medical visa assistance, flights, stay arrangements, and interpreters.
             </p>
           </div>
         </div>
 
         <!-- STEP 4 -->
-        <div class="flex md:flex-col gap-4 md:gap-3 items-start md:items-center">
-          <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-            <i class="bx bx-user-check text-white text-xl"></i>
+        <div class="step-card flex md:flex-col items-start md:items-center gap-5 text-left md:text-center opacity-0 translate-y-6">
+          <div class="step-icon bg-emerald-50 text-emerald-600">
+            <i class="bx bx-user-check"></i>
           </div>
-          <div class="md:text-center">
-            <h3 class="text-sm font-semibold text-slate-900">
-              Warm Welcome
-            </h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Airport pickup, admission assistance, and on-ground coordination.
+          <div>
+            <h3 class="step-title">Arrival & Admission</h3>
+            <p class="step-desc">
+              Airport pickup, hospital admission, and personal on-ground support.
             </p>
           </div>
         </div>
 
         <!-- STEP 5 -->
-        <div class="flex md:flex-col gap-4 md:gap-3 items-start md:items-center">
-          <div class="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center shrink-0">
-            <i class="bx bx-leaf text-white text-xl"></i>
+        <div class="step-card flex md:flex-col items-start md:items-center gap-5 text-left md:text-center opacity-0 translate-y-6">
+          <div class="step-icon bg-rose-50 text-rose-600">
+            <i class="bx bx-leaf"></i>
           </div>
-          <div class="md:text-center">
-            <h3 class="text-sm font-semibold text-slate-900">
-              Heal & Recover
-            </h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Recovery stays, Ayurveda therapies, and cultural experiences.
+          <div>
+            <h3 class="step-title">Treatment & Recovery</h3>
+            <p class="step-desc">
+              World-class treatment, recovery care, and optional wellness therapies.
             </p>
           </div>
         </div>
 
         <!-- STEP 6 -->
-        <div class="flex md:flex-col gap-4 md:gap-3 items-start md:items-center">
-          <div class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center shrink-0">
-            <i class="bx bx-support text-white text-xl"></i>
+        <div class="step-card flex md:flex-col items-start md:items-center gap-5 text-left md:text-center opacity-0 translate-y-6">
+          <div class="step-icon bg-violet-50 text-violet-600">
+            <i class="bx bx-support"></i>
           </div>
-          <div class="md:text-center">
-            <h3 class="text-sm font-semibold text-slate-900">
-              Follow-Up Care
-            </h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Continued care, report sharing, follow-ups, and medicines.
+          <div>
+            <h3 class="step-title">Follow-Up Care</h3>
+            <p class="step-desc">
+              Post-treatment follow-ups, reports, medicines, and long-term guidance.
             </p>
           </div>
         </div>
@@ -619,392 +470,481 @@
     </div>
   </div>
 
-  <!-- Line Animation -->
+  <!-- STYLES -->
   <style>
-    .animated-horizontal-line {
-      width: 0%;
-      animation: growLine 2.6s ease-out forwards;
+    .step-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid rgba(0,0,0,0.04);
+      flex-shrink: 0;
     }
 
-    @keyframes growLine {
-      from { width: 0%; }
-      to { width: 100%; }
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .step-desc {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #64748b;
+    }
+
+    .step-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
     }
   </style>
+
+  <!-- ANIMATION SCRIPT -->
+  <script>
+    const steps = document.querySelectorAll('.step-card');
+    const line = document.getElementById('progressLine');
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          steps.forEach((step, index) => {
+            setTimeout(() => {
+              step.classList.add('step-visible');
+              line.style.width = ((index + 1) / steps.length) * 100 + '%';
+            }, index * 250);
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(steps[0]);
+  </script>
 </section>
 
 <!-- EXPLORE GLOBAL HEALTHCARE -->
-<section class="relative bg-white py-24">
+<section class="relative bg-white py-24 border-t border-slate-100">
   <div class="max-w-7xl mx-auto px-6">
+
+    <!-- HEADING -->
     <div class="text-center mb-16">
-      <h2 class="font-body text-3xl sm:text-4xl font-semibold text-slate-900">
-        The Best of <span class="text-orange-500">Global Healthcare</span> at Your Fingertips
+      <p class="text-xs uppercase tracking-widest text-teal-600 font-medium mb-3">
+        Global Medical Network
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900">
+        World-Class <span class="text-blue-500">Healthcare</span>,<br class="hidden sm:block">
+        Carefully Curated for You
       </h2>
-      <p class="mt-4 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">Discover trusted doctors, globally accredited hospitals, and advanced medical specialities curated for international patients.</p>
+      <p class="mt-4 text-sm text-slate-500 max-w-xl mx-auto">
+        Access trusted hospitals, internationally trained doctors,
+        and leading medical destinations with complete care support.
+      </p>
     </div>
 
-    <!-- Top Cards -->
-    <div class="grid gap-10 lg:grid-cols-3 mb-20">
-      <div class="group relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3" class="w-full h-64 object-cover transition duration-700 group-hover:scale-105" alt="Speciality Hospitals"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+    <!-- FEATURE CARDS -->
+    <div class="grid gap-8 lg:grid-cols-3 mb-20">
 
-        <div class="absolute top-5 left-5">
-          <span class="text-[11px] uppercase tracking-widest bg-white/90 backdrop-blur text-orange-600 px-3 py-1 rounded-full font-medium">Hospitals</span>
+      <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+        <img src="src/images/hospital.webp"
+             class="w-full h-56 object-cover" alt="Hospitals">
+        <div class="p-6">
+          <p class="text-xs uppercase tracking-widest text-orange-500 font-medium">
+            Hospitals
+          </p>
+          <h3 class="mt-2 text-base font-semibold text-slate-900">
+            Accredited Medical Centers
+          </h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Internationally accredited hospitals with modern infrastructure
+            and global safety standards.
+          </p>
         </div>
+      </article>
 
-        <div class="absolute bottom-6 left-6 right-6">
-          <h3 class="text-white font-body text-lg font-semibold">Speciality Hospitals</h3>
-          <p class="text-white/80 text-sm mt-1">Globally accredited medical institutions</p>
+      <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+        <img src="src/images/doctor-work.webp"
+             class="w-full h-56 object-cover" alt="Doctors">
+        <div class="p-6">
+          <p class="text-xs uppercase tracking-widest text-orange-500 font-medium">
+            Doctors
+          </p>
+          <h3 class="mt-2 text-base font-semibold text-slate-900">
+            Globally Trained Specialists
+          </h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Highly experienced surgeons and physicians trained
+            at leading international institutions.
+          </p>
         </div>
+      </article>
+
+      <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white">
+        <img src="src/images/doctor-work.webp"
+             class="w-full h-56 object-cover" alt="Treatments">
+        <div class="p-6">
+          <p class="text-xs uppercase tracking-widest text-orange-500 font-medium">
+            Treatments
+          </p>
+          <h3 class="mt-2 text-base font-semibold text-slate-900">
+            Advanced Medical Specialities
+          </h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Cardiac, Orthopedic, Oncology, Neurology
+            and advanced surgical procedures.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- MEDICAL DESTINATIONS -->
+    <div class="rounded-[32px] border border-slate-200 p-8 sm:p-12">
+
+      <div class="max-w-2xl mb-10">
+        <h3 class="text-2xl sm:text-3xl font-semibold text-slate-900">
+          Arogya Yatri Leading Medical Destinations
+        </h3>
+        <p class="mt-3 text-sm text-slate-500">
+          Countries trusted worldwide for affordability, expertise,
+          and post-treatment recovery experience.
+        </p>
       </div>
 
-      <div class="group relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-        <img src="https://images.unsplash.com/photo-1600959907703-125ba1374a12" class="w-full h-64 object-cover transition duration-700 group-hover:scale-105" alt="Specialized Surgeons"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+      <!-- COUNTRY CARDS -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-        <div class="absolute top-5 left-5">
-          <span class="text-[11px] uppercase tracking-widest bg-white/90 backdrop-blur text-orange-600 px-3 py-1 rounded-full font-medium">Doctors</span>
-        </div>
+        <!-- Country Card -->
+        <article class="rounded-3xl border-2 border-dashed border-orange-300 overflow-hidden">
+          <img src="src/images/india.webp"
+               class="w-full h-44 object-cover" alt="India">
+          <div class="p-5">
+            <h4 class="text-sm font-semibold text-slate-900">India</h4>
+            <p class="mt-1 text-xs text-slate-500">
+              Advanced care • Affordable excellence
+            </p>
+          </div>
+        </article>
 
-        <div class="absolute bottom-6 left-6 right-6">
-          <h3 class="text-white font-body text-lg font-semibold">Specialized Surgeons</h3>
-          <p class="text-white/80 text-sm mt-1">Internationally trained medical experts</p>
-        </div>
-      </div>
+        <article class="rounded-3xl border-2 border-dashed border-sky-300 overflow-hidden">
+          <img src="src/images/south-korea.webp"
+               class="w-full h-44 object-cover" alt="South Korea">
+          <div class="p-5">
+            <h4 class="text-sm font-semibold text-slate-900">South Korea</h4>
+            <p class="mt-1 text-xs text-slate-500">
+              Precision medicine • Innovation-driven care
+            </p>
+          </div>
+        </article>
 
-      <div class="group relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-        <img src="src/images/doctor1.png" class="w-full h-64 object-cover transition duration-700 group-hover:scale-105" alt="Popular Specialities"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+        <article class="rounded-3xl border-2 border-dashed border-emerald-300 overflow-hidden">
+          <img src="src/images/turkey.webp"
+               class="w-full h-44 object-cover" alt="Turkey">
+          <div class="p-5">
+            <h4 class="text-sm font-semibold text-slate-900">Turkey</h4>
+            <p class="mt-1 text-xs text-slate-500">
+              World-class hospitals • European standards
+            </p>
+          </div>
+        </article>
 
-        <div class="absolute top-5 left-5">
-          <span class="text-[11px] uppercase tracking-widest bg-white/90 backdrop-blur text-orange-600 px-3 py-1 rounded-full font-medium">Treatments</span>
-        </div>
+        <article class="rounded-3xl border-2 border-dashed border-violet-300 overflow-hidden">
+          <img src="src/images/thailand.webp"
+               class="w-full h-44 object-cover" alt="Thailand">
+          <div class="p-5">
+            <h4 class="text-sm font-semibold text-slate-900">Thailand</h4>
+            <p class="mt-1 text-xs text-slate-500">
+              Trusted recovery • Wellness-focused care
+            </p>
+          </div>
+        </article>
 
-        <div class="absolute bottom-6 left-6 right-6">
-          <h3 class="text-white font-body text-lg font-semibold">Popular Specialities</h3>
-          <p class="text-white/80 text-sm mt-1">Cardiac, Orthopedic, Oncology & more</p>
-        </div>
       </div>
     </div>
 
-    <!-- Destinations Banner -->
-    <div class="relative rounded-[36px] overflow-hidden border border-slate-200 shadow-lg">
-      <img src="src/images/plane-bg.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Medical Destinations"/>
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-slate-900/20"></div>
-
-      <div class="relative z-10 p-10 sm:p-14 lg:p-16">
-        <h3 class="font-body text-3xl sm:text-4xl font-semibold text-white mb-4">Top Medical Destinations</h3>
-        <p class="text-white/80 text-sm sm:text-base max-w-lg mb-10">Explore globally trusted destinations offering affordable, high-quality medical treatments and recovery experiences.</p>
-
-        <!-- Floating Countries -->
-        <div class="flex gap-6 overflow-x-auto pb-4">
-          <div class="min-w-[180px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-sm">
-            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da" class="w-full h-32 object-cover rounded-xl mb-3" alt="India"/>
-            <p class="text-sm font-semibold text-slate-900">India</p>
-            <p class="text-xs text-slate-500">Advanced & affordable care</p>
-          </div>
-
-          <div class="min-w-[180px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-sm">
-            <img src="src/images/south-korea.png" class="w-full h-32 object-cover rounded-xl mb-3" alt="South Korea"/>
-            <p class="text-sm font-semibold text-slate-900">South Korea</p>
-            <p class="text-xs text-slate-500">Precision & innovation</p>
-          </div>
-
-          <div class="min-w-[180px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-sm">
-            <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa" class="w-full h-32 object-cover rounded-xl mb-3" alt="Turkey"/>
-            <p class="text-sm font-semibold text-slate-900">Turkey</p>
-            <p class="text-xs text-slate-500">World-class facilities</p>
-          </div>
-
-          <div class="min-w-[180px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-sm">
-            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" class="w-full h-32 object-cover rounded-xl mb-3" alt="Thailand"/>
-            <p class="text-sm font-semibold text-slate-900">Thailand</p>
-            <p class="text-xs text-slate-500">Trusted recovery destination</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+    
+    
   </div>
 </section>
 
 <!-- INSIGHTS & BLOGS -->
 <section class="relative bg-white py-24 border-t border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-12 gap-16 items-start">
-      <div class="lg:col-span-4">
-        <p class="font-poppins text-xs tracking-widest uppercase text-orange-500 mb-3">Insights & Knowledge</p>
-        <h2 class="font-body text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">Expert <span class="text-orange-500">Healthcare Insights</span></h2>
-        <p class="mt-4 text-sm text-slate-500 leading-relaxed max-w-sm">Curated perspectives from medical experts, global healthcare trends, and practical guidance for international patients.</p>
+<div class="max-w-7xl mx-auto px-6">
 
-        <a href="#" class="inline-flex items-center gap-2 mt-8 text-sm font-medium text-slate-900 hover:text-orange-500 transition">View All Articles <i class='bx bx-right-arrow-alt text-xl'></i></a>
+<!-- HEADER -->
+<div class="max-w-2xl mb-16">
+  <p class="text-xs tracking-widest uppercase text-blue-500 font-medium mb-3">
+    Insights & Knowledge
+  </p>
+  <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+    Expert <span class="text-blue-500">Healthcare Insights</span><br class="hidden sm:block">
+    From a Global Perspective
+  </h2>
+  <p class="mt-4 text-sm text-slate-500 leading-relaxed">
+    In-depth articles, expert opinions, and global healthcare trends
+    curated to help patients make confident decisions.
+  </p>
+</div>
+
+<!-- CONTENT -->
+<div class="grid lg:grid-cols-12 gap-14 items-start">
+
+  <!-- FEATURED ARTICLE -->
+  <article class="lg:col-span-5 rounded-3xl overflow-hidden border border-slate-200 bg-white">
+    <img
+      src="https://images.unsplash.com/photo-1581090700227-1e37b190418e"
+      class="w-full h-72 sm:h-80 object-cover"
+      alt="Medical Technology"
+    />
+
+    <div class="p-7 sm:p-8">
+      <div class="flex items-center gap-3 text-xs mb-4">
+        <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 font-medium">
+          Technology
+        </span>
+        <span class="text-slate-400">5 min read</span>
       </div>
 
-      <div class="lg:col-span-8 grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
-        <!-- Blog 1 -->
-        <article class="group rounded-3xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:shadow-2xl">
-          <div class="relative">
-            <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" class="w-full h-48 object-cover transition duration-700 group-hover:scale-105" alt="Medical Technology" />
-            <span class="absolute top-4 left-4 text-[11px] uppercase tracking-widest bg-orange-500 text-white px-3 py-1 rounded-full">Technology</span>
-          </div>
+      <h3 class="text-lg sm:text-xl font-semibold text-slate-900 leading-snug mb-4">
+        How Advanced Medical Technology Is Transforming Patient Outcomes
+      </h3>
 
-          <div class="p-7">
-            <h3 class="font-body text-base font-semibold text-slate-900 leading-snug mb-3">How Advanced Medical Technology Improves Treatment Outcomes</h3>
-            <p class="text-sm text-slate-500 leading-relaxed mb-6">Exploring how innovation and precision technology are reshaping patient care across modern healthcare systems.</p>
-            <div class="flex items-center gap-3 text-xs text-slate-500">
-              <img src="https://i.pravatar.cc/40?img=11" class="w-8 h-8 rounded-full" alt="Author"/>
-              <div><p class="font-medium text-slate-700">Dr. Rahul Mehta</p><p class="text-[11px] text-slate-400">2 days ago</p></div>
-            </div>
-          </div>
-        </article>
+      <p class="text-sm text-slate-600 leading-relaxed mb-6">
+        From robotic-assisted surgery to AI-driven diagnostics,
+        explore how innovation is reshaping modern healthcare globally.
+      </p>
 
-        <!-- Blog 2 -->
-        <article class="group rounded-3xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:shadow-2xl">
-          <div class="relative">
-            <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29" class="w-full h-48 object-cover transition duration-700 group-hover:scale-105" alt="Medical Tourism" />
-            <span class="absolute top-4 left-4 text-[11px] uppercase tracking-widest bg-orange-400 text-white px-3 py-1 rounded-full">Medical Tourism</span>
-          </div>
-
-          <div class="p-7">
-            <h3 class="font-body text-base font-semibold text-slate-900 leading-snug mb-3">Why India Is a Global Leader in Medical Tourism</h3>
-            <p class="text-sm text-slate-500 leading-relaxed mb-6">Understanding the factors that make India a trusted destination for affordable, world-class medical treatments.</p>
-            <div class="flex items-center gap-3 text-xs text-slate-500">
-              <img src="https://i.pravatar.cc/40?img=22" class="w-8 h-8 rounded-full" alt="Author"/>
-              <div><p class="font-medium text-slate-700">Anita Sharma</p><p class="text-[11px] text-slate-400">Yesterday</p></div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Blog 3 -->
-        <article class="group rounded-3xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:shadow-2xl">
-          <div class="relative">
-            <img src="src/images/plane-bg.jpg" class="w-full h-48 object-cover transition duration-700 group-hover:scale-105" alt="Medical Specialities" />
-            <span class="absolute top-4 left-4 text-[11px] uppercase tracking-widest bg-orange-300 text-white px-3 py-1 rounded-full">Treatments</span>
-          </div>
-
-          <div class="p-7">
-            <h3 class="font-body text-base font-semibold text-slate-900 leading-snug mb-3">Most In-Demand Medical Specialities Worldwide</h3>
-            <p class="text-sm text-slate-500 leading-relaxed mb-6">A closer look at the treatments most frequently chosen by international patients seeking specialized care.</p>
-            <div class="flex items-center gap-3 text-xs text-slate-500">
-              <img src="https://i.pravatar.cc/40?img=33" class="w-8 h-8 rounded-full" alt="Author"/>
-              <div><p class="font-medium text-slate-700">Dr. Michael Chen</p><p class="text-[11px] text-slate-400">3 days ago</p></div>
-            </div>
-          </div>
-        </article>
-
+      <div class="flex items-center gap-4">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg"
+             class="w-9 h-9 rounded-full"
+             alt="Author">
+        <div>
+          <p class="text-sm font-medium text-slate-800">
+            Dr. Rahul Mehta
+          </p>
+          <p class="text-xs text-slate-400">
+            Senior Consultant • 2 days ago
+          </p>
+        </div>
       </div>
-
     </div>
+  </article>
+
+  <!-- SECONDARY ARTICLES -->
+  <div class="lg:col-span-7 grid sm:grid-cols-2 gap-10">
+
+    <!-- Card -->
+    <article class="rounded-3xl border border-slate-200 bg-white overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1504439468489-c8920d796a29"
+        class="w-full h-48 object-cover"
+        alt="Medical Tourism"
+      />
+
+      <div class="p-6 sm:p-7">
+        <div class="flex items-center justify-between text-xs mb-3">
+          <span class="text-blue-600 font-medium">
+            Medical Tourism
+          </span>
+          <span class="text-slate-400">4 min read</span>
+        </div>
+
+        <h4 class="text-base font-semibold text-slate-900 leading-snug mb-3">
+          Why India Continues to Lead Global Medical Tourism
+        </h4>
+
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+          Affordability, expertise, and infrastructure driving international trust.
+        </p>
+
+        <div class="flex items-center gap-3">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg"
+               class="w-8 h-8 rounded-full"
+               alt="Author">
+          <div>
+            <p class="text-xs font-medium text-slate-700">
+              Anita Sharma
+            </p>
+            <p class="text-[11px] text-slate-400">
+              Healthcare Analyst
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card -->
+    <article class="rounded-3xl border border-slate-200 bg-white overflow-hidden">
+      <img
+        src="src/images/plane-bg.jpg"
+        class="w-full h-48 object-cover"
+        alt="Medical Specialities"
+      />
+
+      <div class="p-6 sm:p-7">
+        <div class="flex items-center justify-between text-xs mb-3">
+          <span class="text-blue-600 font-medium">
+            Treatments
+          </span>
+          <span class="text-slate-400">6 min read</span>
+        </div>
+
+        <h4 class="text-base font-semibold text-slate-900 leading-snug mb-3">
+          Most In-Demand Medical Specialities Across the World
+        </h4>
+
+        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+          Discover which treatments international patients seek most.
+        </p>
+
+        <div class="flex items-center gap-3">
+          <img src="https://randomuser.me/api/portraits/men/61.jpg"
+               class="w-8 h-8 rounded-full"
+               alt="Author">
+          <div>
+            <p class="text-xs font-medium text-slate-700">
+              Dr. Michael Chen
+            </p>
+            <p class="text-[11px] text-slate-400">
+              Global Health Advisor
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
 
   </div>
+</div>
+
+<!-- CTA BUTTON -->
+<div class="mt-16">
+  <a href="#"
+     class="group inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white text-slate-900 font-medium border border-slate-200 transition hover:bg-blue-500 hover:text-white">
+    <span class="h-9 w-9 rounded-full bg-slate-900 text-white flex items-center justify-center transition group-hover:bg-white group-hover:text-blue-500">
+      <i class='bx bx-right-arrow-alt text-xl'></i>
+    </span>
+    View All Articles
+  </a>
+</div>
+
+</div>
 </section>
 
 <!-- PRICING & PACKAGES -->
 <section class="relative bg-white py-24 border-t border-slate-100">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <p class="font-poppins text-xs tracking-widest uppercase text-orange-500 mb-3">Plans & Packages</p>
-      <h2 class="font-body text-3xl sm:text-4xl font-semibold text-slate-900">Transparent <span class="text-orange-500">Healthcare Packages</span></h2>
-      <p class="mt-4 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">Choose a package designed for clarity, comfort, and complete medical support throughout your healthcare journey.</p>
+
+    <!-- HEADER -->
+    <div class="text-center mb-18">
+      <p class="text-xs tracking-widest uppercase text-blue-500 font-medium mb-3">
+        Plans & Packages
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900">
+        Transparent <span class="text-blue-500">Healthcare Pricing</span>
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
+        Clearly structured packages designed to support patients at every stage
+        of their medical journey, with no hidden costs.
+      </p>
     </div>
 
-    <div class="grid gap-10 lg:grid-cols-3">
-      <!-- BASIC -->
-      <div class="group rounded-[32px] border border-slate-200 bg-slate-50 p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-            <i class='bx bx-leaf text-lg text-orange-600'></i>
-          </div>
-          <p class="text-xs uppercase tracking-widest text-orange-600">Basic</p>
-        </div>
+    <!-- PRICING GRID -->
+    <div class="grid gap-10 lg:grid-cols-3 items-stretch mt-10">
 
-        <h3 class="font-body text-4xl font-semibold text-slate-900 mb-1">$199</h3>
-        <p class="text-sm text-slate-500 mb-8">Initial consultation & guidance</p>
-
-        <ul class="space-y-4 text-sm text-slate-600 mb-10">
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Online medical consultation</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Hospital shortlisting</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Treatment cost estimate</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Email support</li>
-        </ul>
-
-        <button class="group w-full py-3 rounded-full border border-orange-300 text-orange-600 font-medium flex items-center justify-center gap-2 transition hover:bg-orange-50">Get Started <i class='bx bx-right-arrow-alt text-xl transition group-hover:translate-x-1'></i></button>
-      </div>
-
-      <!-- STANDARD (FEATURED) -->
-      <div class="relative rounded-[36px] bg-orange-500 p-[1px] transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
-        <div class="rounded-[36px] bg-white p-10 h-full">
-          <span class="inline-flex items-center gap-1 mb-5 text-[10px] uppercase tracking-widest bg-orange-100 text-orange-600 px-3 py-1 rounded-full">
-            <i class='bx bx-star'></i> Most Popular
+      <!-- ESSENTIAL -->
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 flex flex-col">
+        <div class="mb-6">
+          <span class="inline-block text-xs uppercase tracking-widest text-blue-600 font-medium mb-2">
+            Essential
           </span>
-
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-              <i class='bx bx-diamond text-lg text-orange-600'></i>
-            </div>
-            <p class="text-xs uppercase tracking-widest text-orange-600">Standard</p>
-          </div>
-
-          <h3 class="font-body text-4xl font-semibold text-slate-900 mb-1">$699</h3>
-          <p class="text-sm text-slate-500 mb-8">End-to-end medical coordination</p>
-
-          <ul class="space-y-4 text-sm text-slate-600 mb-10">
-            <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Dedicated medical coordinator</li>
-            <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Doctor & hospital matching</li>
-            <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Visa & travel guidance</li>
-            <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Treatment scheduling</li>
-            <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Priority support</li>
-          </ul>
-
-          <button class="group w-full py-3 rounded-full bg-orange-500 text-white font-medium flex items-center justify-center gap-2 transition hover:bg-orange-600">Choose Standard <i class='bx bx-right-arrow-alt text-xl transition group-hover:translate-x-1'></i></button>
+          <h3 class="text-3xl font-semibold text-slate-900">$199</h3>
+          <p class="text-sm text-slate-500 mt-1">
+            For initial medical clarity
+          </p>
         </div>
-      </div>
-
-      <!-- PREMIUM -->
-      <div class="group rounded-[32px] border border-orange-200 bg-orange-50 p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center"><i class='bx bx-crown text-lg text-orange-600'></i></div>
-          <p class="text-xs uppercase tracking-widest text-orange-600">Premium</p>
-        </div>
-
-        <h3 class="font-body text-4xl font-semibold text-slate-900 mb-1">$1,499</h3>
-        <p class="text-sm text-slate-500 mb-8">White-glove medical experience</p>
 
         <ul class="space-y-4 text-sm text-slate-600 mb-10">
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Personal case manager</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Airport pickup & accommodation</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> On-ground hospital assistance</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> Post-treatment follow-ups</li>
-          <li class="flex items-start gap-3"><i class='bx bx-check-circle text-orange-500 mt-0.5'></i> 24/7 priority support</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Online medical consultation</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Hospital & doctor shortlisting</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Preliminary treatment estimates</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Email-based assistance</li>
         </ul>
 
-        <button class="group w-full py-3 rounded-full bg-orange-500 text-white font-medium flex items-center justify-center gap-2 transition hover:bg-orange-600">Choose Premium <i class='bx bx-right-arrow-alt text-xl transition group-hover:translate-x-1'></i></button>
-      </div>
+        <button class="mt-auto w-full py-3 rounded-full border border-slate-300 text-slate-900 font-medium hover:bg-slate-50 transition">
+          Get Started
+        </button>
+      </article>
+
+      <!-- COMPLETE CARE (FEATURED) -->
+      <article class="relative rounded-3xl border-2 border-blue-500 bg-blue-50 p-9 flex flex-col">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-blue-500 text-white text-xs font-medium">
+          Most Chosen
+        </span>
+
+        <div class="mb-6 mt-2">
+          <span class="inline-block text-xs uppercase tracking-widest text-blue-600 font-medium mb-2">
+            Complete Care
+          </span>
+          <h3 class="text-3xl font-semibold text-slate-900">$699</h3>
+          <p class="text-sm text-slate-600 mt-1">
+            End-to-end medical coordination
+          </p>
+        </div>
+
+        <ul class="space-y-4 text-sm text-slate-700 mb-10">
+          <li class="flex gap-3"><i class="bx bx-check text-blue-600 mt-0.5"></i> Dedicated medical coordinator</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-600 mt-0.5"></i> Doctor & hospital matching</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-600 mt-0.5"></i> Travel & visa guidance</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-600 mt-0.5"></i> Appointment scheduling</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-600 mt-0.5"></i> Priority patient support</li>
+        </ul>
+
+        <button class="mt-auto w-full py-3 rounded-full bg-blue-500 text-white font-medium hover:bg-blue-600 transition">
+          Choose Complete Care
+        </button>
+      </article>
+
+      <!-- ELITE -->
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 flex flex-col">
+        <div class="mb-6">
+          <span class="inline-block text-xs uppercase tracking-widest text-blue-600 font-medium mb-2">
+            Elite
+          </span>
+          <h3 class="text-3xl font-semibold text-slate-900">$1,499</h3>
+          <p class="text-sm text-slate-500 mt-1">
+            White-glove medical experience
+          </p>
+        </div>
+
+        <ul class="space-y-4 text-sm text-slate-600 mb-10">
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Personal case manager</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Airport pickup & accommodation</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> On-ground hospital assistance</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> Post-treatment follow-ups</li>
+          <li class="flex gap-3"><i class="bx bx-check text-blue-500 mt-0.5"></i> 24/7 priority access</li>
+        </ul>
+
+        <button class="mt-auto w-full py-3 rounded-full border border-slate-300 text-slate-900 font-medium hover:bg-slate-50 transition">
+          Choose Elite
+        </button>
+      </article>
 
     </div>
 
-    <!-- BRANDS MARQUEE -->
-    <div class="max-w-7xl mx-auto px-6 mt-20">
-      <div class="relative overflow-hidden brand-mask">
-        <div class="brand-marquee flex gap-16 whitespace-nowrap font-brand text-3xl sm:text-4xl text-slate-700 tracking-wide py-4">
-          <span class="opacity-70 hover:opacity-100 transition">Mayo Clinic</span>
-          <span class="opacity-70 hover:opacity-100 transition">Cleveland Clinic</span>
-          <span class="opacity-70 hover:opacity-100 transition">Johns Hopkins</span>
-          <span class="opacity-70 hover:opacity-100 transition">Mount Sinai</span>
-          <span class="opacity-70 hover:opacity-100 transition">Charité Berlin</span>
-          <span class="opacity-70 hover:opacity-100 transition">Apollo Hospitals</span>
-          <span class="opacity-70 hover:opacity-100 transition">Fortis Healthcare</span>
-          <span class="opacity-70 hover:opacity-100 transition">Bumrungrad Intl</span>
-          <span class="opacity-70 hover:opacity-100 transition">Samsung Medical</span>
-          <span class="opacity-70 hover:opacity-100 transition">King’s College</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- REAL JOURNEYS -->
-<section class="relative bg-white py-24 border-t border-slate-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="font-body text-3xl sm:text-4xl font-semibold text-slate-900">Real Journeys. <span class="text-orange-500">Meaningful Transformations.</span></h2>
-      <p class="mt-3 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">Genuine patient stories showcasing trust, precision, and world-class healthcare experiences across borders.</p>
-    </div>
-
-    <div class="grid lg:grid-cols-12 gap-10 mb-14">
-      <div class="lg:col-span-7 relative group rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-        <img src="src/images/doctor1.png" alt="Orthopedic Treatment" class="w-full h-[380px] object-cover transition duration-700 group-hover:scale-105"/>
-        <div class="absolute inset-0 bg-gradient-to-tr from-slate-900/80 via-slate-900/40 to-transparent"></div>
-
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-16 h-16 rounded-full bg-white/90 backdrop-blur flex items-center justify-center transition group-hover:scale-110">
-            <i class='bx bx-play text-3xl text-orange-500 ml-1'></i>
-          </div>
-        </div>
-
-        <div class="absolute top-6 left-6">
-          <span class="text-[11px] uppercase tracking-widest bg-white/90 backdrop-blur px-3 py-1 rounded-full text-slate-700 font-medium">Orthopedic Care</span>
-        </div>
-
-        <div class="absolute bottom-6 left-6 right-6">
-          <h3 class="font-body text-2xl font-semibold text-white leading-tight">Walking Confidently After Advanced Joint Surgery</h3>
-          <p class="text-sm text-white/80 mt-2 max-w-lg">Precision surgery. Faster recovery. Life without limits.</p>
-        </div>
-      </div>
-
-      <div class="lg:col-span-5 grid gap-8">
-        <div class="relative group rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-[175px]">
-          <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Hospital Experience"/>
-          <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4">
-            <span class="text-[11px] uppercase tracking-widest text-orange-300">Hospital Experience</span>
-            <h4 class="text-white font-body text-lg font-semibold">Inside World-Class Medical Facilities</h4>
-            <p class="text-xs text-white/70 mt-1">Comfort, care, and global standards</p>
-          </div>
-        </div>
-
-        <div class="relative group rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-[175px]">
-          <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Cardiac Surgery"/>
-          <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4">
-            <span class="text-[11px] uppercase tracking-widest text-orange-300">Cardiac Care</span>
-            <h4 class="text-white font-body text-lg font-semibold">Precision-Led Heart Surgery Success</h4>
-            <p class="text-xs text-white/70 mt-1">Trusted hands. Proven outcomes.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="flex gap-6 overflow-x-auto pb-4">
-      <div class="min-w-[230px] relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
-        <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db" class="w-full h-36 object-cover transition duration-700 group-hover:scale-105" alt="Recovery"/>
-        <div class="absolute inset-0 bg-slate-900/50"></div>
-        <div class="absolute bottom-3 left-3 right-3">
-          <p class="text-sm text-white font-medium">Recovery & Rehabilitation</p>
-          <p class="text-xs text-white/70">Guided healing journey</p>
-        </div>
-      </div>
-
-      <div class="min-w-[230px] relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
-        <img src="src/images/doctor1.png" class="w-full h-36 object-cover transition duration-700 group-hover:scale-105" alt="International Patient"/>
-        <div class="absolute inset-0 bg-slate-900/50"></div>
-        <div class="absolute bottom-3 left-3 right-3">
-          <p class="text-sm text-white font-medium">International Patients</p>
-          <p class="text-xs text-white/70">Care beyond borders</p>
-        </div>
-      </div>
-
-      <div class="min-w-[230px] relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
-        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" class="w-full h-36 object-cover transition duration-700 group-hover:scale-105" alt="Specialist Care"/>
-        <div class="absolute inset-0 bg-slate-900/50"></div>
-        <div class="absolute bottom-3 left-3 right-3">
-          <p class="text-sm text-white font-medium">Specialist-Led Treatments</p>
-          <p class="text-xs text-white/70">Expert-driven outcomes</p>
-        </div>
-      </div>
-
-      <div class="min-w-[230px] relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
-        <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957" class="w-full h-36 object-cover transition duration-700 group-hover:scale-105" alt="Post Care"/>
-        <div class="absolute inset-0 bg-slate-900/50"></div>
-        <div class="absolute bottom-3 left-3 right-3">
-          <p class="text-sm text-white font-medium">Post-Treatment Care</p>
-          <p class="text-xs text-white/70">Support after recovery</p>
-        </div>
-      </div>
-
-      <div class="min-w-[230px] relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
-        <img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d" class="w-full h-36 object-cover transition duration-700 group-hover:scale-105" alt="Patient Support"/>
-        <div class="absolute inset-0 bg-slate-900/50"></div>
-        <div class="absolute bottom-3 left-3 right-3">
-          <p class="text-sm text-white font-medium">Personalized Support</p>
-          <p class="text-xs text-white/70">Care managers at every step</p>
-        </div>
-      </div>
-
+    <!-- CTA BUTTONS -->
+    <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#"
+         class="group inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white border border-slate-300 text-slate-900 font-medium hover:bg-blue-500 hover:text-white transition">
+        <span class="h-9 w-9 rounded-full bg-slate-900 text-white flex items-center justify-center transition group-hover:bg-white group-hover:text-blue-500">
+          <i class="bx bx-right-arrow-alt text-xl"></i>
+        </span>
+        View All Pricing Plans
+      </a>
     </div>
 
   </div>
@@ -1013,219 +953,143 @@
 <!-- FEATURED DESTINATIONS -->
 <section class="relative bg-white py-24 border-t border-slate-100">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="font-body text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900">Arogya Yatri’s <span class="text-amber-500">Featured Destinations</span></h2>
-      <p class="mt-4 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">Carefully selected global destinations known for clinical excellence, advanced medical infrastructure, and trusted patient outcomes.</p>
+
+    <!-- HEADER -->
+    <div class="text-center mb-18">
+      <p class="text-xs uppercase tracking-widest text-blue-500 font-medium mb-3">
+        Global Reach
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900">
+        Arogya Yatri’s <span class="text-blue-500">Featured Destinations</span>
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
+        Carefully selected international destinations known for clinical excellence,
+        modern medical infrastructure, and consistently trusted patient outcomes.
+      </p>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-12 mb-20">
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/in.png" class="w-16 h-16 rounded-full shadow-md" alt="India Flag">
-        <span class="text-base font-medium text-slate-800">India</span>
+    <!-- DESTINATIONS GRID -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 mt-10">
+
+      <!-- Country Card -->
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/in.png"
+             class="w-14 h-14 rounded-full"
+             alt="India">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">India</p>
+          <p class="text-xs text-slate-500 mt-1">Advanced & affordable care</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/gb.png" class="w-16 h-16 rounded-full shadow-md" alt="UK Flag">
-        <span class="text-base font-medium text-slate-800">United Kingdom</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/gb.png"
+             class="w-14 h-14 rounded-full"
+             alt="United Kingdom">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">United Kingdom</p>
+          <p class="text-xs text-slate-500 mt-1">Clinical research excellence</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/mx.png" class="w-16 h-16 rounded-full shadow-md" alt="Mexico Flag">
-        <span class="text-base font-medium text-slate-800">Mexico</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/mx.png"
+             class="w-14 h-14 rounded-full"
+             alt="Mexico">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">Mexico</p>
+          <p class="text-xs text-slate-500 mt-1">Accessible surgical expertise</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/tr.png" class="w-16 h-16 rounded-full shadow-md" alt="Turkey Flag">
-        <span class="text-base font-medium text-slate-800">Turkey</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/tr.png"
+             class="w-14 h-14 rounded-full"
+             alt="Turkey">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">Turkey</p>
+          <p class="text-xs text-slate-500 mt-1">World-class hospital networks</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/kr.png" class="w-16 h-16 rounded-full shadow-md" alt="South Korea Flag">
-        <span class="text-base font-medium text-slate-800">South Korea</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/kr.png"
+             class="w-14 h-14 rounded-full"
+             alt="South Korea">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">South Korea</p>
+          <p class="text-xs text-slate-500 mt-1">Precision & innovation</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/th.png" class="w-16 h-16 rounded-full shadow-md" alt="Thailand Flag">
-        <span class="text-base font-medium text-slate-800">Thailand</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/th.png"
+             class="w-14 h-14 rounded-full"
+             alt="Thailand">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">Thailand</p>
+          <p class="text-xs text-slate-500 mt-1">Recovery-focused care</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/eg.png" class="w-16 h-16 rounded-full shadow-md" alt="Egypt Flag">
-        <span class="text-base font-medium text-slate-800">Egypt</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/eg.png"
+             class="w-14 h-14 rounded-full"
+             alt="Egypt">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">Egypt</p>
+          <p class="text-xs text-slate-500 mt-1">Heritage & medical growth</p>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center gap-3">
-        <img src="https://flagcdn.com/w80/us.png" class="w-16 h-16 rounded-full shadow-md" alt="USA Flag">
-        <span class="text-base font-medium text-slate-800">USA</span>
+      <div class="flex flex-col items-center text-center gap-4 rounded-2xl border border-slate-200 p-6 bg-white">
+        <img src="https://flagcdn.com/w80/us.png"
+             class="w-14 h-14 rounded-full"
+             alt="USA">
+        <div>
+          <p class="text-sm font-semibold text-slate-900">United States</p>
+          <p class="text-xs text-slate-500 mt-1">Advanced specialty care</p>
+        </div>
       </div>
 
     </div>
 
-    <div class="flex flex-wrap items-center justify-center gap-6 text-center">
-      <div class="px-6">
-        <h3 class="font-body text-3xl font-semibold text-slate-900">300+</h3>
+    <!-- TRUST METRICS -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 text-center mb-16">
+      <div>
+        <h3 class="text-3xl font-semibold text-slate-900">300+</h3>
         <p class="text-sm text-slate-500 mt-1">Partner Hospitals</p>
       </div>
-
-      <span class="hidden md:block text-slate-300 text-3xl">|</span>
-
-      <div class="px-6">
-        <h3 class="font-body text-3xl font-semibold text-slate-900">7000+</h3>
+      <div>
+        <h3 class="text-3xl font-semibold text-slate-900">7000+</h3>
         <p class="text-sm text-slate-500 mt-1">Verified Doctors</p>
       </div>
-
-      <span class="hidden md:block text-slate-300 text-3xl">|</span>
-
-      <div class="px-6">
-        <h3 class="font-body text-3xl font-semibold text-slate-900">20+</h3>
+      <div>
+        <h3 class="text-3xl font-semibold text-slate-900">20+</h3>
         <p class="text-sm text-slate-500 mt-1">Countries Covered</p>
       </div>
-
-      <span class="hidden md:block text-slate-300 text-3xl">|</span>
-
-      <div class="px-6">
-        <h3 class="font-body text-3xl font-semibold text-slate-900">4.6<span class="text-base font-medium text-slate-500"> /5</span></h3>
+      <div>
+        <h3 class="text-3xl font-semibold text-slate-900">
+          4.6<span class="text-base font-medium text-slate-500">/5</span>
+        </h3>
         <p class="text-sm text-slate-500 mt-1">Patient Satisfaction</p>
       </div>
+    </div>
 
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="#"
+         class="group inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white border border-slate-300 text-slate-900 font-medium hover:bg-blue-500 hover:text-white transition">
+        <span class="h-9 w-9 rounded-full bg-slate-900 text-white flex items-center justify-center transition group-hover:bg-white group-hover:text-blue-500">
+          <i class='bx bx-right-arrow-alt text-xl'></i>
+        </span>
+        View All Hospitals
+      </a>
     </div>
 
   </div>
 </section>
 
-<!-- ================== APPOINTMENT MODAL (FULLY RESPONSIVE) ================== -->
-<div id="appointmentModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
-
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <!-- Modal Container -->
-  <div
-    class="relative max-w-4xl w-full sm:w-[95%] mx-auto my-4 sm:my-10 md:my-24
-           bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[95vh]">
-
-    <!-- Close Button -->
-    <button
-      id="closeModal"
-      class="absolute top-3 right-3 sm:top-4 sm:right-4
-             w-9 h-9 flex items-center justify-center
-             rounded-full bg-white shadow
-             text-gray-600 hover:text-black hover:bg-slate-100 z-10">
-      <i class='bx bx-x text-2xl'></i>
-    </button>
-
-    <div class="grid grid-cols-1 md:grid-cols-2">
-
-      <!-- LEFT IMAGE (Desktop only) -->
-      <div class="hidden md:block">
-        <img
-          src="src/images/doctor-modal-img.png"
-          alt="Doctor Appointment"
-          class="h-full w-full object-cover">
-      </div>
-
-      <!-- RIGHT FORM -->
-      <div class="p-5 sm:p-6 md:p-8 overflow-y-auto">
-
-        <h3 class="text-2xl font-semibold text-slate-900 mb-1">
-          Book Appointment
-        </h3>
-        <p class="text-sm text-slate-500 mb-6">
-          Share your details. Our team will contact you shortly.
-        </p>
-
-        <form id="appointmentForm" class="space-y-4">
-
-          <!-- Name -->
-          <div>
-            <label class="text-sm font-medium text-slate-700">Full Name</label>
-            <div class="relative mt-1">
-              <i class='bx bx-user absolute left-3 top-3 text-slate-400'></i>
-              <input
-                id="aptName"
-                required
-                type="text"
-                placeholder="Your full name"
-                class="w-full border border-slate-300 rounded-xl
-                       pl-10 pr-3 py-2.5 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-emerald-500">
-            </div>
-          </div>
-
-          <!-- Phone -->
-          <div>
-            <label class="text-sm font-medium text-slate-700">Phone Number</label>
-            <div class="relative mt-1">
-              <i class='bx bx-phone absolute left-3 top-3 text-slate-400'></i>
-              <input
-                id="aptPhone"
-                required
-                type="tel"
-                placeholder="Mobile number"
-                class="w-full border border-slate-300 rounded-xl
-                       pl-10 pr-3 py-2.5 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-emerald-500">
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div>
-            <label class="text-sm font-medium text-slate-700">Email</label>
-            <div class="relative mt-1">
-              <i class='bx bx-envelope absolute left-3 top-3 text-slate-400'></i>
-              <input
-                id="aptEmail"
-                type="email"
-                placeholder="Email address"
-                class="w-full border border-slate-300 rounded-xl
-                       pl-10 pr-3 py-2.5 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-emerald-500">
-            </div>
-          </div>
-
-          <!-- Speciality -->
-          <div>
-            <label class="text-sm font-medium text-slate-700">
-              Select Speciality
-            </label>
-            <div class="relative mt-1">
-              <i class='bx bx-plus-medical absolute left-3 top-3 text-slate-400'></i>
-              <select
-                id="aptSpeciality"
-                class="w-full border border-slate-300 rounded-xl
-                       pl-10 pr-3 py-2.5 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                <option>Obstetrics & Gynaecology</option>
-                <option>Dentist / IVF Lab Director</option>
-                <option>Paediatrician</option>
-                <option>Pediatrician & Neonatologist</option>
-                <option>Plastic & Reconstructive Surgeon</option>
-                <option>Cancer Specialist</option>
-                <option>Genetics</option>
-                <option>Radiologist</option>
-                <option>Lactation Professional</option>
-                <option>Sports Nutritionist</option>
-                <option>Physiotherapist</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Submit Button -->
-          <button
-            type="submit"
-            class="w-full mt-4 flex items-center justify-center gap-2
-                   rounded-full bg-emerald-600 text-white
-                   py-3 font-medium
-                   hover:bg-emerald-700 transition">
-            Book Consultant
-            <i class='bx bxl-whatsapp text-lg'></i>
-          </button>
-
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer class="relative bg-slate-900 text-slate-300 pt-20 pb-10">
@@ -1248,9 +1112,10 @@
       <div>
         <h4 class="text-white font-semibold mb-5">Company</h4>
         <ul class="space-y-3 text-sm">
-          <li><a href="app/pages/testimonials.html" class="hover:text-white transition">Testimonials</a></li>
-          <li><a href="app/pages/doctors.html" class="hover:text-white transition">Doctors</a></li>
-          <li><a href="app/pages/hospitals.html" class="hover:text-white transition">Hospitals</a></li>
+          <li><a href="app/pages/testimonial.html" class="hover:text-white transition">Testimonials</a></li>
+          <li><a href="app/pages/doctor.html" class="hover:text-white transition">Doctors</a></li>
+          <li><a href="app/pages/hospital.html" class="hover:text-white transition">Hospitals</a></li>
+          <li><a href="app/pages/pricing.html" class="hover:text-white transition">Pricing</a></li>
           <li><a href="app/pages/about.html" class="hover:text-white transition">About Us</a></li>
         </ul>
       </div>
@@ -1258,10 +1123,10 @@
       <div>
         <h4 class="text-white font-semibold mb-5">Services</h4>
         <ul class="space-y-3 text-sm">
-          <li><a href="app/pages/hospitals.html" class="hover:text-white transition">Medical Tourism</a></li>
-          <li><a href="app/pages/doctors.html" class="hover:text-white transition">Doctor Consultation</a></li>
+          <li><a href="app/pages/hospital.html" class="hover:text-white transition">Medical Tourism</a></li>
+          <li><a href="app/pages/doctor.html" class="hover:text-white transition">Doctor Consultation</a></li>
           <li><a href="app/pages/pricing.html" class="hover:text-white transition">Treatment Packages</a></li>
-          <li><a href="app/pages/doctors.html" class="hover:text-white transition">Post-Treatment Care</a></li>
+          <li><a href="app/pages/doctor.html" class="hover:text-white transition">Post-Treatment Care</a></li>
         </ul>
       </div>
 
@@ -1291,150 +1156,193 @@
   </div>
 </footer>
 
+<!-- CONSULTANT MODAL -->
+<div id="consultantModal"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm px-4">
 
+  <div class="relative w-full max-w-md rounded-[28px] bg-white shadow-2xl overflow-hidden">
+
+    <!-- HEADER -->
+    <div class="flex items-start justify-between px-6 py-4 border-b border-slate-100">
+      <div>
+        <h3 class="text-base font-semibold text-slate-900">
+          Book Medical Consultation
+        </h3>
+        <p class="mt-0.5 text-xs text-slate-500">
+          Get expert guidance from our team
+        </p>
+      </div>
+
+      <button id="closeConsultantModal"
+              class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition">
+        <i class='bx bx-x text-xl text-slate-600'></i>
+      </button>
+    </div>
+
+    <!-- BODY -->
+    <form id="consultantForm" class="px-6 py-5 space-y-4">
+
+      <!-- NAME -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Full Name
+        </label>
+        <div class="relative">
+          <i class='bx bx-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="text" required
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="Your name">
+        </div>
+      </div>
+
+      <!-- PHONE -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Phone Number
+        </label>
+        <div class="relative">
+          <i class='bx bx-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="tel" required
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Email Address
+        </label>
+        <div class="relative">
+          <i class='bx bx-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="email"
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 placeholder="you@example.com">
+        </div>
+      </div>
+
+      <!-- SPECIALITY -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Speciality
+        </label>
+        <div class="relative">
+          <i class='bx bx-plus-medical absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <select
+            class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Select speciality</option>
+            <option>Cardiology</option>
+            <option>Orthopedics</option>
+            <option>Oncology</option>
+            <option>Neurology</option>
+            <option>General Consultation</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Medical Details (Optional)
+        </label>
+        <textarea rows="2"
+                  class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Brief details"></textarea>
+      </div>
+
+      <!-- SUBMIT -->
+      <button type="submit"
+              class="group w-full flex items-center justify-center gap-3 rounded-full bg-blue-500 text-white py-2.5 text-sm font-medium hover:bg-blue-600 transition">
+        <span class="w-8 h-8 rounded-full bg-white text-blue-500 flex items-center justify-center">
+          <i class='bx bx-right-arrow-alt text-lg'></i>
+        </span>
+        Send on WhatsApp
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-- MODAL SCRIPT -->
 <script>
-document.addEventListener("click", function (e) {
-  if (e.target.closest(".btn-appointment-premium")) {
-    const modal = document.getElementById("appointmentModal");
-    if (modal) modal.classList.remove("hidden");
-  }
-});
-</script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll('.openConsultantModal');
+    const modal = document.getElementById('consultantModal');
+    const closeBtn = document.getElementById('closeConsultantModal');
+    const form = document.getElementById('consultantForm');
 
-<!-- ================== MODAL + WHATSAPP LOGIC (ADDED) ================== -->
-<script>
-const modal = document.getElementById("appointmentModal");
-const closeModal = document.getElementById("closeModal");
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+    });
 
-document.addEventListener("click", e => {
-  if (e.target.closest(".btn-appointment")) {
-    modal.classList.remove("hidden");
-  }
-});
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
+    }
 
-closeModal.onclick = () => modal.classList.add("hidden");
-modal.onclick = e => { if (e.target === modal) modal.classList.add("hidden"); };
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
 
-document.getElementById("appointmentForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-  const name = document.getElementById("aptName").value;
-  const phone = document.getElementById("aptPhone").value;
-  const email = document.getElementById("aptEmail").value;
-  const speciality = document.getElementById("aptSpeciality").value;
+      const name = form.querySelector('input[type="text"]').value;
+      const phone = form.querySelector('input[type="tel"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const speciality = form.querySelector('select').value;
+      const details = form.querySelector('textarea').value;
 
-  const message =
-`Hello, I want to book an appointment.
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Speciality: ${speciality}`;
+      const message =
+        `Consultation Request\n\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n` +
+        `Speciality: ${speciality}\n` +
+        `Details: ${details}`;
 
-  const whatsappURL =
-    "https://wa.me/1234567890?text=" + encodeURIComponent(message);
+      const whatsappURL =
+        `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
 
-  window.open(whatsappURL, "_blank");
-});
-</script>
-
-<script>
-  /* --- NAV SCROLL & MOBILE MENU HANDLING --- */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('nav-scrolled', window.scrollY > 60);
+      window.open(whatsappURL, '_blank');
+    });
   });
+</script>
 
+
+
+
+<script>
   const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeBtn');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  // toggle mobile menu (keeps original behavior, adds ARIA updates & ESC close)
-  menuBtn.addEventListener('click', () => {
-    const expanded = menuBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('translate-x-full');
-    menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    mobileMenu.setAttribute('aria-hidden', expanded ? 'false' : 'true');
-    // trap focus could be added here if desired
-  });
-
-  // close mobile menu on Escape
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (menuBtn.classList.contains('active')) {
-        menuBtn.classList.remove('active');
-        mobileMenu.classList.add('translate-x-full');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-      }
-    }
-  });
-
-  // click outside to close mobile menu
-  document.addEventListener('click', (e) => {
-    if (!mobileMenu.classList.contains('translate-x-full') && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-      menuBtn.classList.remove('active');
-      mobileMenu.classList.add('translate-x-full');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  /* --- HERO BACKGROUND VIDEO ROTATION --- */
-  const videos = [
-    'src/videos/clip1.mp4',
-    'src/videos/clip2.mp4',
-    'src/videos/clip3.mp4'
-  ];
-
-  const videoEls = document.querySelectorAll('.bg-video');
-  let current = 0;
-
-  // Initialize videos (non-blocking); keep original list of sources
-  videoEls.forEach((v, i) => {
-    if (videos[i]) {
-      v.src = videos[i];
-      v.load();
-      v.preload = 'auto';
-      v.playsInline = true;
-      v.muted = true;
-    }
-  });
-
-  // Play first video safely; handle browsers that block autoplay
-  const tryPlay = (el) => el.play().catch(() => {
-    // fallback: mute and try again (we already set muted)
-    try { el.play(); } catch (err) { /* ignore */ }
-  });
-
-  if (videoEls[0]) tryPlay(videoEls[0]);
-
-  // rotate videos every 9s (preserves original timing/behavior)
-  setInterval(() => {
-    if (!videoEls.length) return;
-    videoEls[current].classList.remove('active');
-    current = (current + 1) % videoEls.length;
-    videoEls[current].classList.add('active');
-    try {
-      videoEls[current].currentTime = 0;
-      tryPlay(videoEls[current]);
-    } catch (err) { /* ignore */ }
-  }, 9000);
-
-  /* Accessibility: add reduced-motion respect */
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (prefersReduced.matches) {
-    // stop the marquee and video rotation for reduced motion
-    document.querySelectorAll('.marquee-track, .brand-marquee').forEach(el => {
-      el.style.animationPlayState = 'paused';
-    });
-    // stop interval-driven video rotation by not setting any interval — but original code used setInterval; we can't remove it (requirement), so we reduce its effect:
-    // we'll set videos to a single active and pause others
-    videoEls.forEach((v, idx) => {
-      if (idx !== 0) v.pause();
-    });
-  }
-
-  /* Keep original functionality intact while improving UX and accessibility */
+  menuBtn.onclick = () => mobileMenu.classList.remove('-translate-x-full');
+  closeBtn.onclick = () => mobileMenu.classList.add('-translate-x-full');
 </script>
+
+<script>
+  const header = document.getElementById('siteHeader');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      header.classList.add('nav-scrolled');
+    } else {
+      header.classList.remove('nav-scrolled');
+    }
+  });
+</script>
+
 
 </body>
 </html>
