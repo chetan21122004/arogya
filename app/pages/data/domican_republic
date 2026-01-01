@@ -1,0 +1,88 @@
+window.COUNTRY_DATA = window.COUNTRY_DATA || {};
+
+COUNTRY_DATA.dominican_republic = {
+  currency: "$",
+  treatments: {
+
+    /* ================= Cardiology & Cardiac Surgery ================= */
+    angioplasty_ptca: null,
+    bypass_surgery_cabg: { usd: [5000, 7000], local: [5000, 7000] },
+    heart_valve_replacement: null,
+    pacemaker_implantation: null,
+    cardiac_consultation: null,
+
+    /* ================= Orthopedics & Joint Replacement ================= */
+    total_knee_replacement: { usd: [5000, 7900], local: [5000, 7900] },
+    hip_replacement: null,
+    shoulder_elbow_replacement: null,
+    arthroscopy: { usd: [1600, 1600], local: [1600, 1600] },
+    spinal_surgery: { usd: [9670, 9670], local: [9670, 9670] },
+
+    /* ================= Neurology & Neurosurgery ================= */
+    brain_tumor_surgery: { usd: [9573, 9573], local: [9573, 9573] },
+    spine_surgery: { usd: [9670, 9670], local: [9670, 9670] },
+    deep_brain_stimulation: { usd: [25000, 25000], local: [25000, 25000] },
+    epilepsy_surgery: { usd: [9573, 9573], local: [9573, 9573] },
+    stroke_rehabilitation: null,
+
+    /* ================= Oncology (Cancer Treatment) ================= */
+    chemotherapy: { usd: [6000, 12000], local: [6000, 12000] },
+    radiation_therapy: { usd: [2400, 4800], local: [2400, 4800] },
+    surgical_oncology: null,
+    bone_marrow_transplant: { usd: [14000, 30000], local: [14000, 30000] },
+    cancer_second_opinion: null,
+
+    /* ================= Gastroenterology & Hepatology ================= */
+    liver_transplant: null,
+    gallbladder_biliary_surgery: null,
+    bariatric_surgery: null,
+    endoscopy_colonoscopy: null,
+    gi_cancer_treatment: null,
+
+    /* ================= Urology & Nephrology ================= */
+    kidney_transplant: null,
+    prostate_surgery: { usd: [2000, 2000], local: [2000, 2000] },
+    kidney_stone_removal: null,
+    dialysis: null,
+    urethral_reconstruction: null,
+
+    /* ================= Gynecology & Fertility ================= */
+    ivf_icsi_fertility: { usd: [3320, 14950], local: [3320, 14950] },
+    hysterectomy: null,
+    laparoscopic_gynec_surgery: null,
+    surrogacy_assistance: null,
+    maternity_delivery_packages: null,
+
+    /* ================= Cosmetic & Plastic Surgery ================= */
+    hair_transplant: { usd: [2500, 5000], local: [2500, 5000] },
+    rhinoplasty: { usd: [3000, 4000], local: [3000, 4000] },
+    liposuction: { usd: [1500, 6500], local: [1500, 6500] },
+    tummy_tuck: { usd: [4000, 8000], local: [4000, 8000] },
+    breast_augmentation: { usd: [3000, 6500], local: [3000, 6500] },
+
+    /* ================= Ophthalmology (Eye Care) ================= */
+    cataract_surgery: null,
+    lasik_refractive: null,
+    retinal_surgery: null,
+    glaucoma_treatment: null,
+
+    /* ================= ENT (Ear, Nose & Throat) ================= */
+    cochlear_implant: null,
+    sinus_surgery: null,
+    tonsil_adenoid_removal: null,
+    ear_reconstruction: null,
+
+    /* ================= Dental & Oral Surgery ================= */
+    dental_implants: { usd: [1000, 3500], local: [1000, 3500] },
+    full_mouth_rehabilitation: { usd: [8000, 20000], local: [8000, 20000] },
+    smile_design: { usd: [1000, 3000], local: [1000, 3000] },
+    root_canal_treatment: { usd: [400, 800], local: [400, 800] },
+    orthodontics: { usd: [500, 3000], local: [500, 3000] },
+
+    /* ================= Ayurveda, Wellness & Rejuvenation ================= */
+    ayurvedic_detox: null,
+    stress_relief_mental_wellness: null,
+    weight_management: null,
+    yoga_naturopathy_packages: null
+  }
+};

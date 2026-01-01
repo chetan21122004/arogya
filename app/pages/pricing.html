@@ -11,9 +11,6 @@
   <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-  <!-- CSS styles -->
-  <link rel="stylesheet" href="../style/basic-nav.css">
-
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -103,29 +100,66 @@ white-space: normal;
 
 <!-- ================= NAVBAR ================= -->
 <header id="siteHeader" class="fixed top-0 inset-x-0 z-50">
-  <nav class="relative max-w-7xl mx-auto px-6 h-full flex items-center">
+  <nav class="relative max-w-7xl mx-auto px-6 h-20 flex items-center">
 
     <!-- Logo -->
-     <a href="../../index.html">
-    <div class="leading-tight">
-      <div class="text-2xl tracking-tight">Arogya Yatri</div>
-      <div class="text-xs opacity-70">A service by Ewan Business Solutions</div>
-    </div>
+    <a href="../../index.html" class="flex items-center">
+      <div class="leading-tight">
+        <div class="text-2xl tracking-tight">Arogya Yatri</div>
+        <div class="text-xs opacity-70">A service by Ewan Business Solutions</div>
+      </div>
     </a>
 
     <!-- Center Links -->
-    <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium">
-      <li><a href="doctor.html" class="nav-link">Doctors</a></li>
-      <li><a href="testimonial.html" class="nav-link">Testimonials</a></li>
-      <li><a href="hospital.html" class="nav-link">Hospitals</a></li>
-      <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
+    <ul
+      class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium items-center">
+
+      <li>
+        <a href="doctor.html" class="nav-link inline-flex items-center leading-none">
+          Doctors
+        </a>
+      </li>
+
+      <li>
+        <a href="testimonial.html" class="nav-link inline-flex items-center leading-none">
+          Testimonials
+        </a>
+      </li>
+
+      <li>
+        <a href="hospital.html" class="nav-link inline-flex items-center leading-none">
+          Hospitals
+        </a>
+      </li>
+
+      <li>
+        <a href="pricing.html" class="nav-link inline-flex items-center leading-none">
+          Pricing
+        </a>
+      </li>
+
+      <!-- Explore Dropdown -->
+      <li class="relative group flex items-center">
+        <button
+          class="nav-link inline-flex items-center gap-1 leading-none">
+          Explore
+          <i class='bx bx-chevron-down text-sm relative top-[1px]'></i>
+        </button>
+
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-52 rounded-xl bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="about.html"
+            class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50 rounded-t-xl">About Us</a>
+        </div>
+      </li>
     </ul>
 
     <!-- CTA -->
-    <div class="ml-auto hidden md:flex">
-      <a class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border transition">
-        <span class="h-8 w-8 rounded-full bg-black text-white flex items-center justify-center circleicon">
+    <div class="ml-auto hidden md:flex items-center">
+      <a
+        class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border transition leading-none">
+        <span
+          class="h-8 w-8 rounded-full bg-black text-white flex items-center justify-center circleicon">
           <i class='bx bx-right-arrow-alt'></i>
         </span>
         <span class="text-sm font-medium">Book Consultation</span>
@@ -133,9 +167,10 @@ white-space: normal;
     </div>
 
     <!-- Mobile Button -->
-    <button id="menuBtn" class="ml-auto md:hidden text-2xl">
+    <button id="menuBtn" class="ml-auto md:hidden text-2xl flex items-center">
       <i class='bx bx-menu'></i>
     </button>
+
   </nav>
 </header>
 
@@ -146,10 +181,10 @@ white-space: normal;
   <!-- Header -->
   <div class="p-6 border-b border-gray-200 flex justify-between items-start">
     <a href="../../index.html">
-    <div>
-      <div class="font-body text-2xl text-primaryDark">Arogya Yatri</div>
-      <div class="text-sm text-gray-500">A service by Ewan Business Solutions</div>
-    </div>
+      <div>
+        <div class="font-body text-2xl text-primaryDark">Arogya Yatri</div>
+        <div class="text-sm text-gray-500">A service by Ewan Business Solutions</div>
+      </div>
     </a>
     <button id="closeBtn" class="text-2xl text-black">
       <i class='bx bx-x'></i>
@@ -162,14 +197,25 @@ white-space: normal;
     <a href="testimonial.html" class="block">Testimonials</a>
     <a href="hospital.html" class="block">Hospitals</a>
     <a href="pricing.html" class="block">Pricing</a>
-    <a href="about.html" class="block">About</a>
+
+    <!-- Mobile Explore Dropdown -->
+    <div>
+      <button id="mobileExploreBtn" class="w-full flex items-center justify-between">
+        <span>Explore</span>
+        <i id="mobileExploreIcon" class='bx bx-chevron-down text-xl'></i>
+      </button>
+
+      <div id="mobileExploreMenu" class="mt-4 ml-4 space-y-4 hidden text-base">
+        <a href="about.html" class="block">About Us</a>
+      </div>
+    </div>
 
     <div class="pt-6 border-t border-gray-200"></div>
 
-    <a style="display: flex; padding-left: 10px; padding-right: 10px;"
+    <a
       class="openConsultantModal flex items-center justify-between px-5 py-2 rounded-full border border-primaryDark hover:bg-primaryDark hover:text-white transition">
       <span>Book Consultation</span>
-      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white group-hover:bg-white group-hover:text-primaryDark">
+      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white">
         <i class='bx bx-right-arrow-alt text-xl'></i>
       </span>
     </a>
@@ -178,6 +224,200 @@ white-space: normal;
 
 <!-- ================= MAIN CONTENT ================= -->
 <main class="page-wrapper max-w-7xl mx-auto ">
+
+
+  <!-- ================= COST CALCULATOR (FLAT PROFESSIONAL SECTION) ================= -->
+<section class="py-20 sm:py-14 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="max-w-2xl mb-12">
+      <div class="flex items-center gap-3 text-blue-500 mb-3">
+        <i class='bx bx-calculator text-2xl'></i>
+        <span class="text-sm font-medium uppercase tracking-wide">Cost Calculator</span>
+      </div>
+      <h2 class="text-3xl sm:text-2xl font-semibold text-slate-900 leading-tight">
+        Get Instant Treatment Cost Estimates
+      </h2>
+      <p class="mt-3 text-slate-600 text-base">
+        Compare treatment costs across countries with transparent pricing.
+      </p>
+    </div>
+
+    <!-- Form -->
+   <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-end">
+
+      <!-- Treatment -->
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-2">
+          Select Treatment<span class="text-blue-500">*</span>
+        </label>
+        <div class="relative">
+          <i class='bx bx-plus-medical absolute left-0 top-1/2 -translate-y-1/2 text-blue-500'></i>
+          <select id="treatmentSelect"
+            class="w-full pl-8 pr-4 py-3 border-b border-slate-300 focus:border-blue-500 outline-none text-slate-900 bg-transparent">
+            <option selected disabled>Choose a treatment</option>
+            <option value="angioplasty_ptca">Angioplasty (PTCA)</option>
+            <option value="bypass_surgery_cabg">Bypass Surgery (CABG)</option>
+            <option value="heart_valve_replacement">Heart Valve Replacement</option>
+            <option value="pacemaker_implantation">Pacemaker Implantation</option>
+            <option value="cardiac_consultation_checkup">Cardiac Consultation / Check-up</option>
+
+            <option value="total_knee_replacement">Total Knee Replacement</option>
+            <option value="hip_replacement">Hip Replacement</option>
+            <option value="shoulder_elbow_replacement">Shoulder / Elbow Replacement</option>
+            <option value="arthroscopy">Arthroscopy</option>
+            <option value="spinal_surgery">Spinal Surgery</option>
+
+            <option value="brain_tumor_surgery">Brain Tumor Surgery</option>
+            <option value="spine_surgery_cervical_lumbar">Spine Surgery (Cervical / Lumbar)</option>
+            <option value="deep_brain_stimulation">Deep Brain Stimulation</option>
+            <option value="epilepsy_surgery">Epilepsy Surgery</option>
+            <option value="stroke_rehabilitation">Stroke Rehabilitation</option>
+
+            <option value="chemotherapy">Chemotherapy</option>
+            <option value="radiation_therapy">Radiation Therapy</option>
+            <option value="surgical_oncology">Surgical Oncology</option>
+            <option value="bone_marrow_transplant">Bone Marrow Transplant</option>
+            <option value="cancer_second_opinion">Cancer Second Opinion</option>
+
+            <option value="liver_transplant">Liver Transplant</option>
+            <option value="gallbladder_biliary_surgery">Gallbladder / Biliary Surgery</option>
+            <option value="bariatric_surgery">Bariatric Surgery</option>
+            <option value="endoscopy_colonoscopy">Endoscopy / Colonoscopy</option>
+            <option value="gi_cancer_treatment">GI Cancer Treatment</option>
+
+            <option value="kidney_transplant">Kidney Transplant</option>
+            <option value="prostate_surgery_turp_laser">Prostate Surgery (TURP / Laser)</option>
+            <option value="kidney_stone_removal">Kidney Stone Removal</option>
+            <option value="dialysis_per_session">Dialysis (per session)</option>
+            <option value="urethral_reconstruction">Urethral Reconstruction</option>
+
+            <option value="ivf_icsi_fertility_treatments">IVF / ICSI / Fertility Treatments</option>
+            <option value="hysterectomy">Hysterectomy</option>
+            <option value="laparoscopic_gynec_surgery">Laparoscopic Gynec Surgery</option>
+            <option value="surrogacy_assistance">Surrogacy Assistance</option>
+            <option value="maternity_delivery_packages">Maternity / Delivery Packages</option>
+
+            <option value="hair_transplant">Hair Transplant</option>
+            <option value="rhinoplasty_nose_job">Rhinoplasty (Nose Job)</option>
+            <option value="liposuction">Liposuction</option>
+            <option value="tummy_tuck_abdominoplasty">Tummy Tuck / Abdominoplasty</option>
+            <option value="breast_augmentation_reduction">Breast Augmentation / Reduction</option>
+
+            <option value="cataract_surgery">Cataract Surgery</option>
+            <option value="lasik_refractive_surgery">LASIK / Refractive Surgery</option>
+            <option value="retinal_surgery">Retinal Surgery</option>
+            <option value="glaucoma_treatment">Glaucoma Treatment</option>
+
+            <option value="cochlear_implant">Cochlear Implant</option>
+            <option value="sinus_surgery">Sinus Surgery</option>
+            <option value="tonsil_adenoid_removal">Tonsil / Adenoid Removal</option>
+            <option value="ear_reconstruction">Ear Reconstruction</option>
+
+            <option value="dental_implants">Dental Implants</option>
+            <option value="full_mouth_rehabilitation">Full Mouth Rehabilitation</option>
+            <option value="smile_design">Smile Design</option>
+            <option value="root_canal_treatment">Root Canal Treatment</option>
+            <option value="orthodontics_braces_aligners">Orthodontics (Braces / Aligners)</option>
+
+            <option value="ayurvedic_detox_panchakarma">Ayurvedic Detox (Panchakarma)</option>
+            <option value="stress_relief_mental_wellness">Stress Relief / Mental Wellness</option>
+            <option value="weight_management">Weight Management</option>
+            <option value="yoga_naturopathy_packages">Yoga & Naturopathy Packages</option>
+
+
+          </select>
+        </div>
+      </div>
+
+      <!-- Country -->
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-2">
+          Country<span class="text-blue-500">*</span>
+        </label>
+        <div class="relative">
+          <i class='bx bx-world absolute left-0 top-1/2 -translate-y-1/2 text-blue-500'></i>
+          <select id="countrySelect"
+            class="w-full pl-8 pr-4 py-3 border-b border-slate-300 focus:border-blue-500 outline-none text-slate-900 bg-transparent">
+            <option selected disabled>Choose a country</option>
+            <option value="india">India</option>
+            <option value="uae">UAE</option>
+            <option value="usa">USA</option>
+            <option value="germany">Germany</option>
+            <option value="france">France</option>
+            <option value="italy">Italy</option>
+            <option value="spain">Spain</option>
+
+            <option value="japan">Japan</option>
+            <option value="china">China</option>
+            <option value="south_korea">South Korea</option>
+            <option value="taiwan">Taiwan</option>
+
+            <option value="czech">Czech Republic</option>
+
+            <option value="mexico">Mexico</option>
+            <option value="brazil">Brazil</option>
+            <option value="argentina">Argentina</option>
+            <option value="domican_republic">Dominican Republic</option>
+
+            <option value="south_africa">South Africa</option>
+            <option value="morocco">Morocco</option>
+
+            <option value="thailand">Thailand</option>
+            <option value="singapore">Singapore</option>
+            <option value="malaysia">Malaysia</option>
+
+          </select>
+        </div>
+      </div>
+
+      <!-- USD Cost -->
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-2">
+          Our Cost (USD)<span class="text-blue-500">*</span>
+        </label>
+        <div class="relative">
+          <i class='bx bx-dollar absolute left-0 top-1/2 -translate-y-1/2 text-blue-500'></i>
+          <input id="usdCost"
+            type="text"
+            class="w-full pl-8 pr-4 py-3 border-b border-slate-300 focus:border-blue-500 outline-none text-slate-900 bg-transparent"
+            readonly>
+        </div>
+      </div>
+
+      <!-- Local Cost -->
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-2">
+          Cost in Selected Country<span class="text-blue-500">*</span>
+        </label>
+        <div class="relative">
+          <i class='bx bx-money absolute left-0 top-1/2 -translate-y-1/2 text-blue-500'></i>
+          <input id="localCost"
+            type="text"
+            class="w-full pl-8 pr-4 py-3 border-b border-slate-300 text-slate-900 bg-transparent"
+            readonly>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action -->
+    <div class="mt-14">
+      <button id="calculateBtn"
+        class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-blue-500 hover:bg-blue-600 transition text-white font-medium shadow-md shadow-blue-500/30">
+        <i class='bx bx-calculator text-xl'></i>
+        Calculate Cost
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="data/india.js"></script>
+<script src="cost-calculator.js"></script>
+
 
 <!-- PRICING & PACKAGES -->
 <section class="relative bg-white py-10 border-t border-slate-100">
@@ -293,6 +533,10 @@ white-space: normal;
 
   </div>
 </section>
+
+
+
+
 
 <!-- ================= MEDICAL COSTS – INDIA (WHITE THEME) ================= -->
 <section class="bg-white py-10">

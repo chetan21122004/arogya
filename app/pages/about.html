@@ -103,29 +103,72 @@ white-space: normal;
 
 <!-- ================= NAVBAR ================= -->
 <header id="siteHeader" class="fixed top-0 inset-x-0 z-50">
-  <nav class="relative max-w-7xl mx-auto px-6 h-full flex items-center">
+  <nav class="relative max-w-7xl mx-auto px-6 h-20 flex items-center">
 
     <!-- Logo -->
-     <a href="../../index.html">
-    <div class="leading-tight">
-      <div class="text-2xl tracking-tight">Arogya Yatri</div>
-      <div class="text-xs opacity-70">A service by Ewan Business Solutions</div>
-    </div>
+    <a href="../../index.html" class="flex items-center">
+      <div class="leading-tight">
+        <div class="text-2xl tracking-tight">Arogya Yatri</div>
+        <div class="text-xs opacity-70">A service by Ewan Business Solutions</div>
+      </div>
     </a>
 
     <!-- Center Links -->
-    <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium">
-      <li><a href="doctor.html" class="nav-link">Doctors</a></li>
-      <li><a href="testimonial.html" class="nav-link">Testimonials</a></li>
-      <li><a href="hospital.html" class="nav-link">Hospitals</a></li>
-      <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
+    <ul
+      class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium items-center">
+
+      <li>
+        <a href="doctor.html" class="nav-link inline-flex items-center leading-none">
+          Doctors
+        </a>
+      </li>
+
+      <li>
+        <a href="testimonial.html" class="nav-link inline-flex items-center leading-none">
+          Testimonials
+        </a>
+      </li>
+
+      <li>
+        <a href="hospital.html" class="nav-link inline-flex items-center leading-none">
+          Hospitals
+        </a>
+      </li>
+
+      <li>
+        <a href="pricing.html" class="nav-link inline-flex items-center leading-none">
+          Pricing
+        </a>
+      </li>
+
+      <!-- Explore Dropdown -->
+      <li class="relative group flex items-center">
+        <button
+          class="nav-link inline-flex items-center gap-1 leading-none">
+          Explore
+          <i class='bx bx-chevron-down text-sm relative top-[1px]'></i>
+        </button>
+
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-52 rounded-xl bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="about.html"
+            class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50 rounded-t-xl">About Us</a>
+          <a href="#"
+            class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50">How It Works</a>
+          <a href="#"
+            class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50">Our Process</a>
+          <a href="#"
+            class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50 rounded-b-xl">Why Arogya Yatri</a>
+        </div>
+      </li>
     </ul>
 
     <!-- CTA -->
-    <div class="ml-auto hidden md:flex">
-      <a class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border transition">
-        <span class="h-8 w-8 rounded-full bg-black text-white flex items-center justify-center circleicon">
+    <div class="ml-auto hidden md:flex items-center">
+      <a
+        class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border transition leading-none">
+        <span
+          class="h-8 w-8 rounded-full bg-black text-white flex items-center justify-center circleicon">
           <i class='bx bx-right-arrow-alt'></i>
         </span>
         <span class="text-sm font-medium">Book Consultation</span>
@@ -133,9 +176,10 @@ white-space: normal;
     </div>
 
     <!-- Mobile Button -->
-    <button id="menuBtn" class="ml-auto md:hidden text-2xl">
+    <button id="menuBtn" class="ml-auto md:hidden text-2xl flex items-center">
       <i class='bx bx-menu'></i>
     </button>
+
   </nav>
 </header>
 
@@ -146,10 +190,10 @@ white-space: normal;
   <!-- Header -->
   <div class="p-6 border-b border-gray-200 flex justify-between items-start">
     <a href="../../index.html">
-    <div>
-      <div class="font-body text-2xl text-primaryDark">Arogya Yatri</div>
-      <div class="text-sm text-gray-500">A service by Ewan Business Solutions</div>
-    </div>
+      <div>
+        <div class="font-body text-2xl text-primaryDark">Arogya Yatri</div>
+        <div class="text-sm text-gray-500">A service by Ewan Business Solutions</div>
+      </div>
     </a>
     <button id="closeBtn" class="text-2xl text-black">
       <i class='bx bx-x'></i>
@@ -162,19 +206,45 @@ white-space: normal;
     <a href="testimonial.html" class="block">Testimonials</a>
     <a href="hospital.html" class="block">Hospitals</a>
     <a href="pricing.html" class="block">Pricing</a>
-    <a href="about.html" class="block">About</a>
+
+    <!-- Mobile Explore Dropdown -->
+    <div>
+      <button id="mobileExploreBtn" class="w-full flex items-center justify-between">
+        <span>Explore</span>
+        <i id="mobileExploreIcon" class='bx bx-chevron-down text-xl'></i>
+      </button>
+
+      <div id="mobileExploreMenu" class="mt-4 ml-4 space-y-4 hidden text-base">
+        <a href="about.html" class="block">About Us</a>
+        
+      </div>
+    </div>
 
     <div class="pt-6 border-t border-gray-200"></div>
 
-    <a style="display: flex; padding-left: 10px; padding-right: 10px;"
+    <a
       class="openConsultantModal flex items-center justify-between px-5 py-2 rounded-full border border-primaryDark hover:bg-primaryDark hover:text-white transition">
       <span>Book Consultation</span>
-      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white group-hover:bg-white group-hover:text-primaryDark">
+      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white">
         <i class='bx bx-right-arrow-alt text-xl'></i>
       </span>
     </a>
   </nav>
 </div>
+
+<!-- ================= MOBILE DROPDOWN SCRIPT ================= -->
+<script>
+  const mobileExploreBtn = document.getElementById('mobileExploreBtn')
+  const mobileExploreMenu = document.getElementById('mobileExploreMenu')
+  const mobileExploreIcon = document.getElementById('mobileExploreIcon')
+
+  mobileExploreBtn.addEventListener('click', () => {
+    mobileExploreMenu.classList.toggle('hidden')
+    mobileExploreIcon.classList.toggle('bx-chevron-down')
+    mobileExploreIcon.classList.toggle('bx-chevron-up')
+  })
+</script>
+
 
 <!-- ================= MAIN CONTENT ================= -->
 <main class="page-wrapper max-w-7xl mx-auto ">

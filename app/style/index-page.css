@@ -1,119 +1,119 @@
-  /* Hide scrollbar globally */
-    html, body {
-      scrollbar-width: none;      /* Firefox */
-      -ms-overflow-style: none;   /* IE & Edge */
-    }
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-      display: none;              /* Chrome, Safari */
-    }
-    *::-webkit-scrollbar {
-      display: none;
-    }
+/* Hide scrollbar globally */
+html, body {
+scrollbar-width: none;      /* Firefox */
+-ms-overflow-style: none;   /* IE & Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+display: none;              /* Chrome, Safari */
+}
+*::-webkit-scrollbar {
+display: none;
+}
 
-    html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: white;
-      transform: translateX(-50%);
-      transition: width .3s ease;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+left: 50%;
+bottom: -4px;
+width: 0;
+height: 2px;
+background: white;
+transform: translateX(-50%);
+transition: width .3s ease;
+}
+.nav-link:hover::after {
+width: 100%;
+}
 
-    .hero-overlay {
-      background: rgba(0,0,0,0.55);
-    }
+.hero-overlay {
+background: rgba(0,0,0,0.55);
+}
 
-     /* marquee */
-    @keyframes marquee {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
+/* marquee */
+@keyframes marquee {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
 
-    .marquee-track {
-      animation: marquee 30s linear infinite;
-    }
+.marquee-track {
+animation: marquee 30s linear infinite;
+}
 
-    .marquee-mask {
-      mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-    }
+.marquee-mask {
+mask-image: linear-gradient(
+to right,
+transparent 0%,
+black 8%,
+black 92%,
+transparent 100%
+);
+-webkit-mask-image: linear-gradient(
+to right,
+transparent 0%,
+black 8%,
+black 92%,
+transparent 100%
+);
+}
 
-    @media (max-width: 640px) {
-      .marquee-track {
-        animation-duration: 20s;
-      }
-    }
+@media (max-width: 640px) {
+.marquee-track {
+animation-duration: 20s;
+}
+}
 
-    @keyframes marquee-rtl {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+@keyframes marquee-rtl {
+0% { transform: translateX(100%); }
+100% { transform: translateX(-100%); }
+}
 
-    .brand-marquee {
-      animation: marquee-rtl 28s linear infinite;
-    }
+.brand-marquee {
+animation: marquee-rtl 28s linear infinite;
+}
 
-    .brand-mask {
-      mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 8%,
-        black 92%,
-        transparent 100%
-      );
-    }
+.brand-mask {
+mask-image: linear-gradient(
+to right,
+transparent 0%,
+black 8%,
+black 92%,
+transparent 100%
+);
+-webkit-mask-image: linear-gradient(
+to right,
+transparent 0%,
+black 8%,
+black 92%,
+transparent 100%
+);
+}
 
-    @media (max-width: 640px) {
-      .brand-marquee {
-        animation-duration: 18s;
-      }
-    }
+@media (max-width: 640px) {
+.brand-marquee {
+animation-duration: 18s;
+}
+}
 
-    @keyframes grow-line {
-      from { height: 0; }
-      to { height: 100%; }
-    }
+@keyframes grow-line {
+from { height: 0; }
+to { height: 100%; }
+}
 
-    .step-line {
-      animation: grow-line 1.6s ease-out forwards;
-    }
+.step-line {
+animation: grow-line 1.6s ease-out forwards;
+}
 
-    /* Navbar scroll state */
+/* Navbar scroll state */
 .nav-scrolled {
-  background-color: white;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-  transition: all 0.5s;
+background-color: white;
+box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+transition: all 0.5s;
 }
 
 /* Text color switch */
@@ -121,20 +121,20 @@
 .nav-scrolled .nav-link,
 .nav-scrolled .nav-cta,
 .nav-scrolled #menuBtn {
-  color: black !important;
+color: black !important;
 }
 
 /* Underline color switch */
 .nav-scrolled .nav-link::after {
-  background: black;
+background: black;
 }
 
 /* CTA border + hover fix */
 .nav-scrolled .nav-cta {
-  border-color: black;
+border-color: black;
 }
 
 .nav-scrolled .nav-cta:hover {
-  background: black;
-  color: white !important;
+background: black;
+color: white !important;
 }

@@ -63,11 +63,26 @@
 
     <!-- Links -->
     <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-base font-medium text-white nav-text">
+
       <li><a href="app/pages/doctor.html" class="nav-link">Doctors</a></li>
       <li><a href="app/pages/testimonial.html" class="nav-link">Testimonials</a></li>
       <li><a href="app/pages/hospital.html" class="nav-link">Hospitals</a></li>
       <li><a href="app/pages/pricing.html" class="nav-link">Pricing</a></li>
-      <li><a href="app/pages/about.html" class="nav-link">About</a></li>
+
+      <!-- Explore Dropdown -->
+      <li class="relative group">
+        <button class="nav-link inline-flex items-center gap-1">
+          Explore
+          <i class='bx bx-chevron-down text-sm'></i>
+        </button>
+
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-52 rounded-xl bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="app/pages/about.html" class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50 rounded-t-xl">About Us</a>
+          <a href="index.html#howitworks" class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50">How It Works</a>
+          <a href="index.html#howitworks" class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50">Our Process</a>
+          <a href="index.html#whyarogya" class="block px-5 py-3 text-sm text-slate-800 hover:bg-slate-50 rounded-b-xl">Why Arogya Yatri</a>
+        </div>
+      </li>
     </ul>
 
     <!-- CTA -->
@@ -81,6 +96,7 @@
       </a>
     </div>
 
+    <!-- Mobile Menu Button -->
     <button id="menuBtn" class="md:hidden text-2xl text-white nav-text">
       <i class='bx bx-menu'></i>
     </button>
@@ -109,13 +125,25 @@
     <a href="app/pages/testimonial.html" class="block">Testimonials</a>
     <a href="app/pages/hospital.html" class="block">Hospitals</a>
     <a href="app/pages/pricing.html" class="block">Pricing</a>
-    <a href="app/pages/about.html" class="block">About</a>
+
+    <!-- Mobile Explore Dropdown -->
+    <div>
+      <button id="mobileExploreBtn" class="w-full flex items-center justify-between">
+        <span>Explore</span>
+        <i id="mobileExploreIcon" class='bx bx-chevron-down text-xl'></i>
+      </button>
+
+      <div id="mobileExploreMenu" class="mt-4 ml-4 space-y-4 hidden text-base">
+        <a href="app/pages/about.html" class="block">About Us</a>
+      </div>
+    </div>
+
     <div class="pt-6 border-t border-gray-200"></div>
 
     <a href="#"
       class="openConsultantModal flex items-center justify-between px-5 py-4 rounded-full border border-primaryDark hover:bg-primaryDark hover:text-white transition">
       <span>Book Consultation</span>
-      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white group-hover:bg-white group-hover:text-primaryDark">
+      <span class="h-10 w-10 flex items-center justify-center rounded-full bg-primaryDark text-white">
         <i class='bx bx-right-arrow-alt text-xl'></i>
       </span>
     </a>
@@ -123,75 +151,78 @@
 </div>
 
 <!-- ================= HERO ================= -->
-<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden text-white">
 
+  <!-- Background Video -->
   <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
     <source src="src/videos/clip2.mp4" type="video/mp4">
   </video>
 
-  <div class="absolute inset-0 hero-overlay"></div>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
 
-  <div class="relative z-10 max-w-4xl px-6 mt-24">
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 text-center">
 
-    <p class="text-sm uppercase tracking-wide text-white mb-4 opacity-0 animate-smoothIn">
-      Trusted Healthcare Navigation
-    </p>
+    <!-- Brand Strip -->
+    <div class="mb-10">
+      <div class="text-xl font-semibold tracking-tight text-blue-300">
+        Arogya Yatri
+      </div>
+      <div class="text-xs uppercase tracking-widest text-white/70 mt-1">
+        By Ewan Business Solutions
+      </div>
+      <div class="mt-4 text-sm font-medium tracking-wide text-blue-400 uppercase">
+        Your Medical Tourism Facilitator
+      </div>
+    </div>
 
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight mb-6 opacity-0 animate-smoothIn text-white"
-        style="animation-delay:150ms">
-      <span class="text-green-300">Healthcare</span>
-      <span class="text-white"> made effortless,<br class="hidden sm:block">
-      wherever you are</span>
+    <!-- Main Heading -->
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight max-w-6xl mx-auto mb-8">
+      Get expert-backed clarity and confidence for
+      <span class="text-blue-400">every medical decision</span>
+      at no cost to you.
     </h1>
 
-    <p class="text-base text-white/85 max-w-2xl mx-auto mb-10 opacity-0 animate-smoothIn"
-       style="animation-delay:300ms">
-      Seamlessly connect with verified doctors, trusted hospitals, and expert care guidance — designed for clarity, confidence, and comfort.
-    </p>
+    <!-- Feature Highlights -->
+    <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-base sm:text-lg font-medium text-white/90 mb-14">
+      <span>Hospital & Surgeon Matching</span>
+      <span class="hidden sm:inline text-white/40">|</span>
+      <span>Transparent Treatment Options</span>
+      <span class="hidden sm:inline text-white/40">|</span>
+      <span>Unmatched Pricing</span>
+      <span class="hidden sm:inline text-white/40">|</span>
+      <span>Real Human Assistance</span>
+    </div>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-smoothIn"
-         style="animation-delay:450ms">
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-5 mb-16">
 
-      <a class="openConsultantModal inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white text-black font-medium">
-        <span class="h-9 w-9 rounded-full bg-black text-white flex items-center justify-center">
-          <i class='bx bx-right-arrow-alt text-xl'></i>
+      <a class="openConsultantModal inline-flex items-center gap-4 px-7 py-3.5 rounded-full bg-blue-500 hover:bg-blue-600 transition font-medium text-white">
+        <span class="h-10 w-10 rounded-full bg-white text-blue-500 flex items-center justify-center">
+          <i class='bx bx-right-arrow-alt text-2xl'></i>
+        </span>
+        Get Started
+      </a>
+
+      <a href="app/pages/hospital.html"
+         class="inline-flex items-center gap-4 px-7 py-3.5 rounded-full bg-white text-slate-900 font-medium hover:bg-slate-100 transition">
+        <span class="h-10 w-10 rounded-full bg-slate-900 text-white flex items-center justify-center">
+          <i class='bx bx-calendar text-xl'></i>
         </span>
         Book Consultation
       </a>
 
-      <a href="app/pages/hospital.html"
-        class="inline-flex items-center gap-4 px-6 py-3 rounded-full border border-white text-white font-medium">
-        <span class="h-9 w-9 rounded-full bg-white text-black flex items-center justify-center">
-          <i class='bx bx-right-arrow-alt text-xl'></i>
-        </span>
-        Explore
-      </a>
     </div>
 
-   <div
-  class="mt-14 text-base sm:text-lg font-medium tracking-wide text-white
-         opacity-0 animate-smoothIn"
-  style="animation-delay:650ms">
-
-  <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-6">
-    <span>Cardiology</span>
-    <span class="hidden sm:inline opacity-40">|</span>
-
-    <span>Neurology</span>
-    <span class="hidden sm:inline opacity-40">|</span>
-
-    <span>Orthopedics</span>
-    <span class="hidden sm:inline opacity-40">|</span>
-
-    <span>Pediatrics</span>
-  </div>
-
-</div>
-
+    <!-- Trust Line -->
+    <p class="text-sm text-white/70 max-w-5xl mx-auto leading-relaxed">
+      Zero waiting period • We speak your language • Follow-up medicine courier •
+      Travel with your companion free*
+    </p>
 
   </div>
 </section>
-
 
 <!-- TOP BRANDS SUPPORT -->
 <section class="relative bg-white py-20 border-t border-slate-100">
@@ -227,7 +258,7 @@
 </section>
 
 <!-- SPECIALITIES -->
-<section class="relative bg-white py-24 border-t border-slate-100">
+<section class="relative bg-white py-24 border-t border-slate-100 whyarogya">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Header -->
@@ -358,7 +389,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="relative bg-white py-28 border-t border-slate-100 overflow-hidden">
+<section class="relative bg-white py-28 border-t border-slate-100 overflow-hidden howitworks">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- HEADING -->
@@ -833,7 +864,7 @@
 </div>
 
 </div>
-</section>
+</section> 
 
 <!-- PRICING & PACKAGES -->
 <section class="relative bg-white py-24 border-t border-slate-100">
@@ -1264,6 +1295,18 @@
   </div>
 </div>
 
+<!-- ================= MOBILE DROPDOWN SCRIPT ================= -->
+<script>
+  const exploreBtn = document.getElementById('mobileExploreBtn')
+  const exploreMenu = document.getElementById('mobileExploreMenu')
+  const exploreIcon = document.getElementById('mobileExploreIcon')
+
+  exploreBtn.addEventListener('click', () => {
+    exploreMenu.classList.toggle('hidden')
+    exploreIcon.classList.toggle('bx-chevron-down')
+    exploreIcon.classList.toggle('bx-chevron-up')
+  })
+</script>
 
 <!-- MODAL SCRIPT -->
 <script>
@@ -1319,9 +1362,7 @@
   });
 </script>
 
-
-
-
+<!-- sidebar -->
 <script>
   const menuBtn = document.getElementById('menuBtn');
   const closeBtn = document.getElementById('closeBtn');
@@ -1331,6 +1372,7 @@
   closeBtn.onclick = () => mobileMenu.classList.add('-translate-x-full');
 </script>
 
+<!-- header -->
 <script>
   const header = document.getElementById('siteHeader');
 
