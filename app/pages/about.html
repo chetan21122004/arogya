@@ -22,7 +22,8 @@
         extend: {
           fontFamily: {
             logo: ['Anton', 'sans-serif'],
-            body: ['Lexend', 'sans-serif']
+            body: ['Lexend', 'sans-serif'],
+            brand: ['Anton']
           },
           colors: {
             primaryDark: '#0F172A'
@@ -93,6 +94,87 @@ width: 100%;
 line-height: 1.4;
 padding: 6px 0;
 white-space: normal;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-bg {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E') repeat;
+    opacity: 0.4;
+}
+
+/* ===== FEATURE CARDS ===== */
+.feature-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05), rgba(59, 130, 246, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+/* ===== MISSION VISION CARDS ===== */
+.mission-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(20, 184, 166, 0.1);
+    transition: all 0.4s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(20, 184, 166, 0.15);
+    border-color: rgba(20, 184, 166, 0.2);
+}
+
+.vision-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    transition: all 0.4s ease;
+}
+
+.vision-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+@media (max-width: 768px) {
+    .hero-bg {
+        min-height: 60vh;
+    }
 }
 
 </style>
@@ -253,151 +335,492 @@ white-space: normal;
 
 
 <!-- ================= MAIN CONTENT ================= -->
-<main class="page-wrapper max-w-7xl mx-auto ">
+<main class="page-wrapper">
 
-<!-- ================= WHY CHOOSE AROGYA YATRI ================= -->
-<section class="bg-white py-10">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Heading -->
-    <div class="max-w-3xl mb-16">
-      <p class="text-xs uppercase tracking-widest text-teal-500 mb-3">
-        About Arogya Yatri
-      </p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-        Your Trusted Partner in
-        <span class="text-teal-500">Global Medical Care</span>
-      </h2>
-      <p class="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
-        Arogya Yatri is built to simplify international medical travel by combining
-        ethical guidance, world-class hospitals, and complete patient support —
-        so you can focus on healing with confidence.
+<!-- ================= HERO SECTION ================= -->
+<section class="hero-bg relative min-h-[70vh] flex items-center justify-center text-white">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+    
+    <!-- Brand Identity -->
+    <div class="mb-8">
+      <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-teal-300 text-sm font-medium mb-6">
+        <i class='bx bx-heart text-lg'></i>
+        <span>Your Medical Tourism Facilitator</span>
+      </div>
+      
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        About <span class="text-teal-400">Arogya Yatri</span>
+      </h1>
+      
+      <p class="text-xl sm:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+        A traveler on a path to healing — connecting patients worldwide with India's finest healthcare, 
+        culture, and wellness traditions.
       </p>
     </div>
 
-    <!-- Features Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bx-world text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Multilingual Support
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Powered by EWAN Business Solutions, we enable smooth communication
-            in 120+ languages — ensuring you feel understood, supported,
-            and cared for throughout your journey.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bx-wallet text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Save Up to 80% on Treatment
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Access world-class treatment in India at a fraction of Western
-            and Gulf costs, without compromising on quality, safety,
-            or hospital accreditation.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bx-plus-medical text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Post-Treatment Follow-up & Medicine Delivery
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Even after you return home, we stay connected with your doctors
-            and ensure prescribed medicines are delivered safely to your doorstep.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bxs  -plane-alt text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Companion Travel Assistance*
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Bring a loved one along. We assist with companion travel
-            arrangements including visa and documentation, making
-            your journey more comfortable.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bx-support text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Complete Start-to-End Assistance
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            From medical care and language support to travel, stay,
-            and tourism — Arogya Yatri is your single point of contact
-            throughout the journey.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bx-file text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Free Report Analysis & Guidance
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Share your medical reports for a free, no-obligation review
-            by our expert panel and receive transparent treatment recommendations.
-          </p>
-        </div>
-      </div>
-
-      <!-- Feature -->
-      <div class="flex gap-5">
-        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-50 text-teal-500 flex items-center justify-center">
-          <i class='bx bx-dish text-xl'></i>
-        </div>
-        <div>
-          <h4 class="font-semibold text-slate-900 mb-1">
-            Diet-Focused Care & Nutrition
-          </h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Personalized diet and nutrition plans aligned with your treatment,
-            cultural preferences, and recovery goals — supporting long-term health.
-          </p>
-        </div>
-      </div>
-
+    <!-- Meaning Section -->
+    <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+      <h3 class="text-lg font-semibold text-teal-300 mb-3">Meaning Behind Arogya Yatri</h3>
+      <p class="text-white/90 leading-relaxed">
+        <span class="font-semibold text-teal-300">'Arogya'</span> means well-being, and 
+        <span class="font-semibold text-teal-300">'Yatri'</span> means traveler, both derived from Sanskrit. 
+        Together, Arogya Yatri means a traveler on a path to healing.
+      </p>
     </div>
 
   </div>
 </section>
+
+<!-- ================= ABOUT US OVERVIEW ================= -->
+<section class="bg-white py-24 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-widest uppercase text-teal-500 font-medium mb-3">
+        Our Story
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+        Your Trusted Partner in <span class="text-teal-500">Global Medical Care</span>
+      </h2>
+      <p class="mt-6 text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
+        Arogya Yatri is a dedicated medical tourism service by Ewan Business Solutions, created to help international patients 
+        access world-class healthcare in India with ease and confidence.
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      
+      <!-- Content -->
+      <div>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-slate-700 leading-relaxed mb-6">
+            We bridge the gap between patients and India's top hospitals, experienced doctors, and affordable treatment options. 
+            Our goal is to ensure that every patient receives quality care while also experiencing India's warmth, culture, and hospitality.
+          </p>
+          
+          <p class="text-slate-700 leading-relaxed mb-8">
+            With a strong focus on transparency, comfort, and personalized guidance, Arogya Yatri manages the entire journey 
+            from your first inquiry to your return home after treatment.
+          </p>
+
+          <div class="bg-teal-50 border border-teal-200 rounded-2xl p-6">
+            <h4 class="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+              <i class='bx bx-shield-quarter text-teal-600'></i>
+              Our Promise
+            </h4>
+            <p class="text-slate-700 leading-relaxed">
+              But our care doesn't stop at the hospital. We guide you through India's rich culture, ancient healing practices, 
+              and serene landscapes helping you heal physically, emotionally, and spiritually.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Element -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/20 rounded-3xl blur-2xl"></div>
+        <div class="relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-3">
+                <i class='bx bx-world text-2xl text-teal-600'></i>
+              </div>
+              <div class="text-2xl font-bold text-slate-900">120+</div>
+              <div class="text-sm text-slate-600">Languages Supported</div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                <i class='bx bx-clinic text-2xl text-blue-600'></i>
+              </div>
+              <div class="text-2xl font-bold text-slate-900">300+</div>
+              <div class="text-sm text-slate-600">Partner Hospitals</div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-3">
+                <i class='bx bx-user-check text-2xl text-emerald-600'></i>
+              </div>
+              <div class="text-2xl font-bold text-slate-900">7000+</div>
+              <div class="text-sm text-slate-600">Verified Doctors</div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-3">
+                <i class='bx bx-trophy text-2xl text-orange-600'></i>
+              </div>
+              <div class="text-2xl font-bold text-slate-900">4.6/5</div>
+              <div class="text-sm text-slate-600">Patient Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION & VISION ================= -->
+<section class="bg-slate-50 py-24 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-widest uppercase text-teal-500 font-medium mb-3">
+        Our Purpose
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+        Mission & <span class="text-teal-500">Vision</span>
+      </h2>
+    </div>
+
+    <!-- Mission & Vision Cards -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      
+      <!-- Mission Card -->
+      <div class="mission-card rounded-3xl p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg">
+            <i class='bx bx-target-lock text-2xl text-white'></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900">Mission</h3>
+            <p class="text-sm text-teal-600 font-medium">Our Core Purpose</p>
+          </div>
+        </div>
+        <p class="text-slate-700 leading-relaxed text-lg">
+          To provide exceptional healthcare coordination, transparent guidance, and a comfortable healing journey 
+          in India at a fraction of the cost abroad.
+        </p>
+      </div>
+
+      <!-- Vision Card -->
+      <div class="vision-card rounded-3xl p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+            <i class='bx bx-bulb text-2xl text-white'></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900">Vision</h3>
+            <p class="text-sm text-blue-600 font-medium">Our Future Goal</p>
+          </div>
+        </div>
+        <p class="text-slate-700 leading-relaxed text-lg">
+          Our vision is to provide patients worldwide with access to quality treatment in India at an affordable cost, 
+          delivered with complete transparency and supported by our strong network of trusted doctors and hospitals.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE DO ================= -->
+<section class="bg-white py-24 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-widest uppercase text-teal-500 font-medium mb-3">
+        Our Services
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+        What <span class="text-teal-500">We Do</span>
+      </h2>
+      <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+        At Arogya Yatri, we manage your entire medical trip to India from start to finish.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Service 1 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-teal-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4">
+          <i class='bx bx-clinic text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Hospital & Doctor Matching
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Connecting you with the right doctors and hospitals based on your medical needs and preferences.
+        </p>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+          <i class='bx bx-video text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Online Consultations
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Arranging online consultations and collecting medical reports for expert review and treatment planning.
+        </p>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+          <i class='bx bxs-plane-alt text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Travel Planning
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Complete travel coordination — flights, visa assistance, airport pickup, and local transport arrangements.
+        </p>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-violet-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center mb-4">
+          <i class='bx bx-home text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Accommodation
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Organizing comfortable accommodation near your hospital, suited to your budget and recovery needs.
+        </p>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-rose-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+          <i class='bx bx-calendar text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Treatment Coordination
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Coordinating treatment schedules, follow-up visits, and recovery support throughout your medical journey.
+        </p>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+          <i class='bx bx-world text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Multilingual Assistance
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Providing multilingual assistance for smooth communication throughout your treatment and recovery.
+        </p>
+      </div>
+
+      <!-- Service 7 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
+          <i class='bx bx-map text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Cultural Experiences
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Offering optional India sightseeing experiences during recovery (only if advised by the doctor).
+        </p>
+      </div>
+
+      <!-- Service 8 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-cyan-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-4">
+          <i class='bx bx-support text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Complete Support
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          We make medical travel simple, safe, and affordable — so you can focus on healing, while we handle everything else.
+        </p>
+      </div>
+
+      <!-- Service 9 -->
+      <div class="feature-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-green-300 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-green-50 text-green-600 flex items-center justify-center mb-4">
+          <i class='bx bx-package text-2xl'></i>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Post-Treatment Care
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Continued support even after you return home with follow-up consultations and medicine delivery services.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE AROGYA YATRI ================= -->
+<section class="bg-slate-50 py-24 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-widest uppercase text-teal-500 font-medium mb-3">
+        Why Choose Us
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+        Why Choose <span class="text-teal-500">Arogya Yatri?</span>
+      </h2>
+      <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+        Your trusted partner for seamless medical tourism with complete support at every step.
+      </p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Benefit 1 -->
+      <div class="group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-teal-300 overflow-hidden cursor-pointer">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-teal-500/5 rounded-bl-full"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-50 to-teal-100 text-teal-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 border border-teal-100">
+              <i class='bx bx-world text-2xl'></i>
+            </div>
+            <span class="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">01</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-4 leading-tight">
+            Multilingual Support (EWAN Powered)
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            With EWAN Business Solutions, Arogya Yatri ensures smooth communication in 120+ languages, making your medical journey in India truly effortless.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-orange-300 overflow-hidden cursor-pointer">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-orange-500/5 rounded-bl-full"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 text-orange-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 border border-orange-100">
+              <i class='bx bx-dollar-circle text-2xl'></i>
+            </div>
+            <span class="text-xs font-bold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-full">02</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-4 leading-tight">
+            Save up to 80%
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Get world-class treatment in India at a fraction of costs in Western and Gulf countries, without compromising quality or safety.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-blue-300 overflow-hidden cursor-pointer">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 text-blue-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 border border-blue-100">
+              <i class='bx bx-package text-2xl'></i>
+            </div>
+            <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">03</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-4 leading-tight">
+            Post-Treatment Follow-up & Medicine Courier
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Your care continues even after you return home. Arogya Yatri helps you stay connected with your doctors for follow-up consultations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 4 -->
+      <div class="group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-emerald-300 overflow-hidden cursor-pointer">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-emerald-500/5 rounded-bl-full"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 text-emerald-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 border border-emerald-100">
+              <i class='bx bx-user-plus text-2xl'></i>
+            </div>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">04</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-4 leading-tight">
+            Travel with your Companion for Free*
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Bring your loved one along for free. Arogya Yatri arranges travel for your companion, making your medical journey more comforting.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 5 -->
+      <div class="group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-violet-300 overflow-hidden cursor-pointer">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-violet-500/5 rounded-bl-full"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-50 to-violet-100 text-violet-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 border border-violet-100">
+              <i class='bx bx-support text-2xl'></i>
+            </div>
+            <span class="text-xs font-bold text-violet-600 bg-violet-50 px-2.5 py-1 rounded-full">05</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-4 leading-tight">
+            Complete start to end assistance
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Arogya Yatri is your one point of contact for everything from medical care and language support to travel, stay, and tourism.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 6 -->
+      <div class="group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 hover:border-rose-300 overflow-hidden cursor-pointer">
+        <div class="absolute top-0 right-0 w-20 h-20 bg-rose-500/5 rounded-bl-full"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-50 to-rose-100 text-rose-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 border border-rose-100">
+              <i class='bx bx-file-blank text-2xl'></i>
+            </div>
+            <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full">06</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-4 leading-tight">
+            Free* Report Analysis & Guidance
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Share your medical reports for a free, no-obligation analysis by our expert panel before you travel to India.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA SECTION ================= -->
+<section class="bg-gradient-to-r from-teal-500 to-blue-600 py-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+        Ready to Start Your Healing Journey?
+      </h2>
+      <p class="text-lg text-white/90 mb-8 leading-relaxed">
+        Let us help you access world-class healthcare in India with complete transparency, 
+        comfort, and personalized guidance every step of the way.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a class="openConsultantModal inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition">
+          <span class="h-10 w-10 rounded-full bg-teal-500 text-white flex items-center justify-center">
+            <i class='bx bx-right-arrow-alt text-xl'></i>
+          </span>
+          Book Free Consultation
+        </a>
+        <a href="treatments.html" class="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-slate-900 transition">
+          <i class='bx bx-plus-medical text-xl'></i>
+          View Our Treatments
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
 
 
 
@@ -497,11 +920,11 @@ white-space: normal;
 
       <!-- SUBMIT -->
       <button type="submit"
-              class="group w-full flex items-center justify-center gap-3 rounded-full bg-teal-500 text-white py-2.5 text-sm font-medium hover:bg-teal-500 transition">
+              class="group w-full flex items-center justify-center gap-3 rounded-full bg-teal-500 text-white py-2.5 text-sm font-medium hover:bg-blue-600 transition">
         <span class="w-8 h-8 rounded-full bg-white text-teal-500 flex items-center justify-center">
           <i class='bx bx-right-arrow-alt text-lg'></i>
         </span>
-        Send Details
+        Send on WhatsApp
       </button>
 
     </form>
@@ -530,15 +953,14 @@ white-space: normal;
       </div>
 
       <div>
-        <h4 class="text-white font-semibold mb-5">Quick Links</h4>
+        <h4 class="text-white font-semibold mb-5">Company</h4>
         <ul class="space-y-3 text-sm">
-          <li><a href="../../index.html" class="hover:text-white transition">Home</a></li>
-          <li><a href="treatments.html" class="hover:text-white transition">Treatment</a></li>
+          <li><a href="testimonial.html" class="hover:text-white transition">Testimonials</a></li>
+          <li><a href="doctor.html" class="hover:text-white transition">Doctors</a></li>
           <li><a href="hospital.html" class="hover:text-white transition">Hospitals</a></li>
-          <li><a href="doctor.html" class="hover:text-white transition">Doctor</a></li>
+          <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
           <li><a href="destinations.html" class="hover:text-white transition">Destinations</a></li>
           <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
-          <li><a href="testimonial.html" class="hover:text-white transition">Testimonials</a></li>
         </ul>
       </div>
 

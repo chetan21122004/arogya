@@ -319,22 +319,22 @@ white-space: normal;
   <!-- Sidebar -->
   <aside class="lg:col-span-3">
     <div class="sticky top-28 space-y-5">
-      <div class="doctor-card p-6">
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
         <div class="flex items-center justify-between mb-5">
-          <h3 class="text-lg font-semibold">Filters</h3>
-          <button id="clearFilters" class="text-sm">Clear</button>
+          <h3 class="text-lg font-semibold text-slate-900">Filters</h3>
+          <button id="clearFilters" class="text-sm text-teal-600 hover:text-teal-700 font-medium transition-colors">Clear</button>
         </div>
 
         <div>
-          <label class="text-sm font-medium block mb-2">Search speciality</label>
+          <label class="text-sm font-medium block mb-2 text-slate-700">Search speciality</label>
           <input
             id="specialtySearch"
-            class="w-full border rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-colors"
             placeholder="Search speciality" />
         </div>
 
         <div class="mt-5">
-          <label class="text-sm font-medium block mb-3">Specialities</label>
+          <label class="text-sm font-medium block mb-3 text-slate-700">Specialities</label>
           <div id="specialtyList" class="space-y-3 text-sm"></div>
         </div>
       </div>
@@ -346,15 +346,15 @@ white-space: normal;
     <div id="doctorResults" class="space-y-6"></div>
 
     <!-- Pagination -->
-    <div class="flex items-center justify-between mt-4">
-      <div class="muted text-sm">
-        Page <strong id="currentPage">1</strong>
+    <div class="flex items-center justify-between mt-8 pt-6 border-t border-slate-200">
+      <div class="text-sm text-slate-600">
+        Page <strong id="currentPage" class="text-slate-900">1</strong>
       </div>
       <div class="flex items-center gap-2">
-        <button id="prevPage" class="px-4 py-2 rounded-lg border muted">
+        <button id="prevPage" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
           <i class='bx bx-chevron-left'></i>
         </button>
-        <button id="nextPage" class="px-4 py-2 rounded-lg border muted">
+        <button id="nextPage" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 hover:bg-teal-50 hover:border-teal-300 hover:text-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
           <i class='bx bx-chevron-right'></i>
         </button>
       </div>
@@ -610,20 +610,20 @@ white-space: normal;
 <!-- ================== DATA + LOGIC (FIXED, NOTHING REMOVED) ================== -->
 <script>
 const doctors = [
-  {name:"Dr. Ravindra Kulkarni", gender:"male", spec:"Obstetrics & Gynaecology", edu:"MBBS MD OB-GYN", exp:"35+ years"},
-  {name:"Dr. Chaitanya Ganapule", gender:"male", spec:"Obstetrics & Gynaecology", edu:"MBBS MD OB-GYN, IVF, Dip in Gynaec Endoscopy", exp:"25 years"},
-  {name:"Dr. Padmaja Jadhav", gender:"female", spec:"Obstetrics & Gynaecology", edu:"MBBS DGO", exp:"25+ years"},
-  {name:"Dr. Anuprita Burande", gender:"female", spec:"Obstetrics & Gynaecology", edu:"MBBS, DNB (OBGYN)", exp:"15+ years"},
+  {name:"Dr. Ravindra Kulkarni", gender:"male", spec:"Obstetrics & Gynaecology", edu:"MBBS MD OB-GYN", exp:">35 years"},
+  {name:"Dr. Chaitanya Ganapule", gender:"male", spec:"Obstetrics & Gynaecology", edu:"MBBS MD OB-GYN Certificate in infertility & IVF, Dip in Gynaec Endoscopy", exp:"25 years"},
+  {name:"Dr. Padmaja Jadhav", gender:"female", spec:"Obstetrics & Gynaecology", edu:"MBBS DGO", exp:">25 years"},
+  {name:"Dr. Anuprita Burande", gender:"female", spec:"Obstetrics & Gynaecology", edu:"MBBS, DNB (obgyn)", exp:">15 years"},
   {name:"Dr. Ashwini Ganapule", gender:"female", spec:"Dentist / IVF Lab Director", edu:"BDS, MSc (Clinical Embryology)", exp:"25 years"},
-  {name:"Dr. Sandeep Kadam", gender:"male", spec:"Paediatrician", edu:"MD, DM Neonatology", exp:"20+ years"},
-  {name:"Dr. Dhyey Pandya", gender:"male", spec:"Pediatrician & Neonatologist", edu:"MD, DNB (Neo)", exp:"13+ years"},
-  {name:"Dr. Pranav Thusay", gender:"male", spec:"Plastic & Reconstructive Surgeon", edu:"MBBS, DNB, M.Ch", exp:"10+ years"},
-  {name:"Dr. Mihir Chitale", gender:"male", spec:"Cancer Specialist", edu:"Oncology, Robotic Surgery", exp:"15 years"},
-  {name:"Dr. Anup Kumar Rawool", gender:"male", spec:"Genetics", edu:"DM Medical Genetic, MD, MBA", exp:"21 years"},
+  {name:"Dr. Sandeep Kadam", gender:"male", spec:"Paediatrician", edu:"MD, DM Neonatology", exp:">20 years"},
+  {name:"Dr. Dhyey Pandya", gender:"male", spec:"Pediatrician and neonatologist", edu:"MD, DrNB(Neo)", exp:"> 13 years"},
+  {name:"Dr. Pranav Thusay", gender:"male", spec:"Plastic & Reconstructive Surgeon", edu:"MBBS, DNB, M.Ch", exp:"> 10 years"},
+  {name:"Dr. Mihir Chitale", gender:"male", spec:"Cancer Specialist", edu:"MBBS, DNB (G.Surg.), FMAS (Minimal Access surgery-M.U.H.S.) , FCLS , Fellowship in G.I. Surgery & Endocrine surgery, Gynae- Oncology , Surgical Oncology , Robotic surgery", exp:"15 years"},
+  {name:"Dr. Anup Kumar Rawool", gender:"male", spec:"Genetics", edu:"DM (Medical Genetic ) MD (Genaral Medicine) MBA ( Hosp Admin ), PGDGM, PGDHHM , MBBS , CCMG", exp:"21 years"},
   {name:"Dr. Shirish Gandhi", gender:"male", spec:"Radiologist", edu:"MBBS, DMRD, DNB", exp:"30 years"},
-  {name:"Shanta Borkar", gender:"female", spec:"Lactation Professional", edu:"MS ACLP", exp:"3+ years"},
-  {name:"Avanti Damle", gender:"female", spec:"Sports Nutritionist", edu:"BSc PG Sports Nutrition", exp:"21 years"},
-  {name:"Dr. Apurva Kangude (PT)", gender:"female", spec:"Physiotherapist", edu:"BPTH APTA CAPP-OB", exp:"7+ years"}
+  {name:"Shanta Borkar", gender:"female", spec:"Lactation professional", edu:"MS ACLP", exp:"> 3 years"},
+  {name:"Avanti Damle", gender:"female", spec:"Sports Nutritionist", edu:"Bsc PG sports nutrition , PG in Alternative Medicine", exp:"21 years"},
+  {name:"Dr. Apurva Kangude (PT)", gender:"female", spec:"Physiotherapist", edu:"Bpth APTA CAPP-OB", exp:">7 years"}
 ];
 
 const perPage = 5;
@@ -651,36 +651,53 @@ function renderDoctors() {
   const paginated = filtered.slice(start, start + perPage);
 
   paginated.forEach(d => {
+    const iconColor = d.gender === 'male' ? 'bg-blue-500' : 'bg-pink-500';
     results.innerHTML += `
-      <article class="doctor-card p-0">
-        <div class="doctor-inner">
-          <div class="doctor-media">
-            <img class="doctor-photo" src="../../src/images/${d.gender}-doctor.png" alt="${d.name}">
-          </div>
-          <div class="doctor-content">
-            <div class="header-row">
-              <div>
-                <h3 class="text-2xl font-semibold">${d.name}</h3>
-                <p class="muted mt-1">${d.edu}</p>
-              </div>
-              <div class="hidden sm:flex flex-col items-end gap-2">
-                <div class="small-muted">Speciality</div>
-                <div class="tag">${d.spec}</div>
+      <article class="group bg-white rounded-2xl border border-slate-200 hover:border-teal-300 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+        <div class="p-6">
+          <div class="flex flex-col sm:flex-row gap-6">
+            <!-- Icon Container -->
+            <div class="flex-shrink-0">
+              <div class="w-24 h-24 ${iconColor} rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                <i class='bx bx-user text-4xl text-white'></i>
               </div>
             </div>
-            <div class="doctor-meta mt-3">
-              <div>
-                <div class="small-muted">Experience</div>
-                <div class="stat">${d.exp}</div>
-              </div>
-            </div>
-            <div class="doctor-footer mt-5">
-              <div class="ml-auto flex">
-                <a class="openConsultantModal nav-cta inline-flex items-center gap-3 px-5 py-2 rounded-full border transition">
-                  <span class="h-8 w-8 rounded-full bg-black text-white flex items-center justify-center">
-                    <i class='bx bx-right-arrow-alt'></i>
+            
+            <!-- Content -->
+            <div class="flex-1 min-w-0">
+              <!-- Header -->
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                <div class="flex-1">
+                  <h3 class="text-xl sm:text-2xl font-semibold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors">
+                    ${d.name}
+                  </h3>
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    ${d.edu}
+                  </p>
+                </div>
+                <div class="flex-shrink-0">
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200">
+                    ${d.spec}
                   </span>
-                  <span class="text-sm font-medium">Book Consultation</span>
+                </div>
+              </div>
+              
+              <!-- Experience -->
+              <div class="flex items-center gap-2 mb-5">
+                <div class="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center">
+                  <i class='bx bx-time-five text-slate-600'></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-500 font-medium">Experience</div>
+                  <div class="text-sm font-semibold text-slate-900">${d.exp}</div>
+                </div>
+              </div>
+              
+              <!-- CTA Button -->
+              <div class="pt-4 border-t border-slate-100">
+                <a class="openConsultantModal inline-flex items-center gap-3 px-5 py-2.5 rounded-lg bg-slate-50 hover:bg-teal-50 text-slate-700 hover:text-teal-700 text-sm font-medium transition-colors border border-slate-200 hover:border-teal-200 w-full sm:w-auto justify-center">
+                  <i class='bx bx-calendar text-lg'></i>
+                  <span>Book Consultation</span>
                 </a>
               </div>
             </div>
@@ -690,21 +707,49 @@ function renderDoctors() {
   });
 
   currentPage.textContent = page;
+  
+  // Update pagination button states
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  if (prevBtn) {
+    prevBtn.disabled = page === 1;
+    if (page === 1) {
+      prevBtn.classList.add("opacity-50", "cursor-not-allowed");
+    } else {
+      prevBtn.classList.remove("opacity-50", "cursor-not-allowed");
+    }
+  }
+  if (nextBtn) {
+    nextBtn.disabled = page >= totalPages;
+    if (page >= totalPages) {
+      nextBtn.classList.add("opacity-50", "cursor-not-allowed");
+    } else {
+      nextBtn.classList.remove("opacity-50", "cursor-not-allowed");
+    }
+  }
 }
 
 const specs = [...new Set(doctors.map(d => d.spec))];
 const specList = document.getElementById("specialtyList");
 
+// Add "All Specialities" option
+specList.innerHTML = `
+  <label class="flex items-center gap-3 cursor-pointer hover:text-teal-600 transition-colors py-1">
+    <input type="radio" name="spec" value="" checked class="text-teal-500 focus:ring-teal-500">
+    <span>All Specialities</span>
+  </label>`;
+
+// Add individual specialties
 specs.forEach(s => {
   specList.innerHTML += `
-    <label class="flex items-center gap-3">
-      <input type="radio" name="spec" value="${s}">
-      ${s}
+    <label class="flex items-center gap-3 cursor-pointer hover:text-teal-600 transition-colors py-1">
+      <input type="radio" name="spec" value="${s}" class="text-teal-500 focus:ring-teal-500">
+      <span>${s}</span>
     </label>`;
 });
 
 specList.addEventListener("change", e => {
-  activeSpec = e.target.value.toLowerCase();
+  activeSpec = e.target.value === "" ? "" : e.target.value.toLowerCase();
   page = 1;
   renderDoctors();
 });
@@ -719,7 +764,9 @@ document.getElementById("clearFilters").onclick = () => {
   activeSpec = "";
   page = 1;
   document.getElementById("specialtySearch").value = "";
-  document.querySelectorAll('input[name="spec"]').forEach(r => r.checked = false);
+  document.querySelectorAll('input[name="spec"]').forEach(r => {
+    r.checked = r.value === "";
+  });
   renderDoctors();
 };
 
