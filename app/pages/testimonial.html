@@ -663,69 +663,149 @@ white-space: normal;
       <!-- NAME -->
       <div>
         <label class="text-[11px] font-medium text-slate-600 mb-1 block">
-          Full Name
+          Name
         </label>
         <div class="relative">
           <i class='bx bx-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
-          <input type="text" required
+          <input type="text" name="name" required
                  class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                  placeholder="Your name">
         </div>
       </div>
 
-      <!-- PHONE -->
+      <!-- COUNTRY -->
       <div>
         <label class="text-[11px] font-medium text-slate-600 mb-1 block">
-          Phone Number
+          Country
         </label>
         <div class="relative">
-          <i class='bx bx-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
-          <input type="tel" required
-                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-                 placeholder="+91 XXXXX XXXXX">
-        </div>
-      </div>
-
-      <!-- EMAIL -->
-      <div>
-        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
-          Email Address
-        </label>
-        <div class="relative">
-          <i class='bx bx-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
-          <input type="email"
-                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-                 placeholder="you@example.com">
-        </div>
-      </div>
-
-      <!-- SPECIALITY -->
-      <div>
-        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
-          Speciality
-        </label>
-        <div class="relative">
-          <i class='bx bx-plus-medical absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
-          <select
+          <i class='bx bx-globe absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <select name="country" required
             class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
-            <option>Select speciality</option>
-            <option>Cardiology</option>
-            <option>Orthopedics</option>
-            <option>Oncology</option>
-            <option>Neurology</option>
-            <option>General Consultation</option>
+            <option value="">Select country</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Italy">Italy</option>
+            <option value="Spain">Spain</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Austria">Austria</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Norway">Norway</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Finland">Finland</option>
+            <option value="Poland">Poland</option>
+            <option value="Czech Republic">Czech Republic</option>
+            <option value="Greece">Greece</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Ireland">Ireland</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="South Africa">South Africa</option>
+            <option value="UAE">United Arab Emirates</option>
+            <option value="Saudi Arabia">Saudi Arabia</option>
+            <option value="Kuwait">Kuwait</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Oman">Oman</option>
+            <option value="Bahrain">Bahrain</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Japan">Japan</option>
+            <option value="South Korea">South Korea</option>
+            <option value="China">China</option>
+            <option value="Taiwan">Taiwan</option>
+            <option value="Hong Kong">Hong Kong</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Vietnam">Vietnam</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Nepal">Nepal</option>
+            <option value="Myanmar">Myanmar</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Chile">Chile</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Peru">Peru</option>
+            <option value="Venezuela">Venezuela</option>
+            <option value="Costa Rica">Costa Rica</option>
+            <option value="Dominican Republic">Dominican Republic</option>
+            <option value="Morocco">Morocco</option>
+            <option value="Egypt">Egypt</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Ghana">Ghana</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Other">Other</option>
           </select>
         </div>
       </div>
 
-      <!-- DETAILS -->
+      <!-- WHATSAPP NUMBER -->
       <div>
         <label class="text-[11px] font-medium text-slate-600 mb-1 block">
-          Medical Details (Optional)
+          WhatsApp Number
         </label>
-        <textarea rows="2"
-                  class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="Brief details"></textarea>
+        <div class="relative">
+          <i class='bx bxl-whatsapp absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <input type="tel" name="whatsapp" required
+                 class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                 placeholder="+1 234 567 8900">
+        </div>
+      </div>
+
+      <!-- TREATMENT/CONCERN -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Treatment/Concern
+        </label>
+        <div class="relative">
+          <i class='bx bx-plus-medical absolute left-3.5 top-3 text-slate-400'></i>
+          <textarea name="treatment" rows="3" required
+                  class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  placeholder="Describe your treatment or medical concern"></textarea>
+        </div>
+      </div>
+
+      <!-- PREFERRED WAY TO CONTACT -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Preferred Way to Contact
+        </label>
+        <div class="relative">
+          <i class='bx bx-phone-call absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <select name="contactMethod" required
+            class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <option value="">Select option</option>
+            <option value="Call">Call</option>
+            <option value="Text">Text</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PREFERRED TIME TO CONTACT -->
+      <div>
+        <label class="text-[11px] font-medium text-slate-600 mb-1 block">
+          Preferred Time to Contact
+        </label>
+        <div class="relative">
+          <i class='bx bx-time-five absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400'></i>
+          <select name="contactTime" required
+            class="w-full rounded-xl border border-slate-200 pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <option value="">Select time</option>
+            <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+            <option value="Afternoon (12 PM - 5 PM)">Afternoon (12 PM - 5 PM)</option>
+            <option value="Evening (5 PM - 9 PM)">Evening (5 PM - 9 PM)</option>
+            <option value="Anytime">Anytime</option>
+          </select>
+        </div>
       </div>
 
       <!-- SUBMIT -->
@@ -844,19 +924,21 @@ white-space: normal;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = form.querySelector('input[type="text"]').value;
-      const phone = form.querySelector('input[type="tel"]').value;
-      const email = form.querySelector('input[type="email"]').value;
-      const speciality = form.querySelector('select').value;
-      const details = form.querySelector('textarea').value;
+      const name = form.querySelector('input[name="name"]').value;
+      const country = form.querySelector('select[name="country"]').value;
+      const whatsapp = form.querySelector('input[name="whatsapp"]').value;
+      const treatment = form.querySelector('textarea[name="treatment"]').value;
+      const contactMethod = form.querySelector('select[name="contactMethod"]').value;
+      const contactTime = form.querySelector('select[name="contactTime"]').value;
 
       const message =
         `Consultation Request\n\n` +
         `Name: ${name}\n` +
-        `Phone: ${phone}\n` +
-        `Email: ${email}\n` +
-        `Speciality: ${speciality}\n` +
-        `Details: ${details}`;
+        `Country: ${country}\n` +
+        `WhatsApp Number: ${whatsapp}\n` +
+        `Treatment/Concern: ${treatment}\n` +
+        `Preferred Way to Contact: ${contactMethod}\n` +
+        `Preferred Time to Contact: ${contactTime}`;
 
       const whatsappURL =
         `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
